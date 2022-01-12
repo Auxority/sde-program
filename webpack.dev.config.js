@@ -19,6 +19,7 @@ module.exports = {
   },
   devServer: {
     static: './dist',
+    port: 9002,
   },
   output: {
     filename: 'index.js',
