@@ -1,7 +1,9 @@
 import Game from "../Game";
+import Resizer from "../utils/Resizer";
 
 export default class StartButton {
     private _currentGame: Game;
+    private _button: HTMLButtonElement;
 
     /**
      * Create the start button
@@ -9,29 +11,31 @@ export default class StartButton {
      */
     public constructor(currentGame: Game) {
         this._currentGame = currentGame;
-        const button = document.createElement("button");
-        button.innerText = "Start";
-        button.id = "start-button";
+        this._button = document.createElement("button");
+        this._button.innerText = "START";
+        this._button.id = "start-button";
+        this._button.style.width = `${Resizer.INITIAL_CANVAS_SIZE}px`;
+        this._button.style.height = `${Resizer.INITIAL_CANVAS_SIZE * 0.2}px`;
 
-        document.body.appendChild(button);
+        document.body.appendChild(this._button);
 
-        this.addStartButtonEvent(button);
+        this.addStartButtonEvent();
     }
 
     /**
      * add event listener to start the game on click
      * @param startButton HTML button
      */
-    private addStartButtonEvent(startButton: HTMLButtonElement) {
-        startButton.addEventListener("click", () => this.onStartButtonClicked(startButton));
+    private addStartButtonEvent() {
+        this._button.addEventListener("click", () => this.onStartButtonClicked());
     }
 
     /**
      * Start the game and remove the button
      * @param startButton HTML button
      */
-    private onStartButtonClicked(startButton: HTMLButtonElement): void {
+    private onStartButtonClicked(): void {
         this._currentGame.start();
-        startButton.remove();
+        this._button.remove();
     }
 }
