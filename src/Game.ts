@@ -6,8 +6,8 @@ export default class Game {
     private _startButton: StartButton;
 
     private _canvas: HTMLCanvasElement;
-    private _resizer: Resizer;
     private _ctx: CanvasRenderingContext2D;
+    private _resizer: Resizer;
 
     public constructor(canvasId: string) {
         this._canvas = document.getElementById(canvasId) as HTMLCanvasElement;

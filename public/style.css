@@ -5,11 +5,31 @@ html, body {
 }
 
 body {
-    max-height: 100%;
-    float: left;
-    width: 100%;
+    background: rgb(35, 35, 37);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #game-canvas {
-    background: rgb(15, 15, 15);
+    background: rgb(45, 45, 47);
+    display: block;
+}
+
+#start-button {
+    background: rgb(0, 255, 136);
+    border: none;
+    color: rgb(45, 45, 47);
+    cursor: pointer;
+    outline: none;
+    position: absolute;
+    font-weight: bold;
+    font-family: 'Comic Sans';
+    font-size: 24px;
+}
+
+@font-face {
+    font-family: 'Comic Sans';
+    src: url('./comic.ttf');
 }

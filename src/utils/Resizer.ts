@@ -1,6 +1,8 @@
 export default class Resizer {
-    private _autoResize: boolean;
+    public static readonly INITIAL_CANVAS_SIZE = 200;
+
     private _canvas: HTMLCanvasElement;
+    private _autoResize: boolean;
 
     /**
      * Initialize resizer
@@ -8,8 +10,11 @@ export default class Resizer {
      */
     public constructor(canvas: HTMLCanvasElement) {
         this._canvas = canvas;
+        this._canvas.width = Resizer.INITIAL_CANVAS_SIZE;
+        this._canvas.height = Resizer.INITIAL_CANVAS_SIZE;
         this._autoResize = false;
         window.addEventListener('resize', () => this.onResize());
+        this.onResize();
     }
 
     /**
@@ -33,7 +38,7 @@ export default class Resizer {
      */
     private onResize(): void {
         if (this._autoResize) {
-            const smallestSize: number = Math.min(window.innerWidth, window.innerHeight);
+            const smallestSize: number = Math.min(window.innerWidth, window.innerHeight) * 0.9;
             this._canvas.width = smallestSize;
             this._canvas.height = smallestSize;
         }
