@@ -4,6 +4,10 @@ export default class Resizer {
     private _canvas: HTMLCanvasElement;
     private _autoResize: boolean;
 
+    /**
+     * Initialize resizer
+     * @param canvas HTML Canvas to resize
+     */
     public constructor(canvas: HTMLCanvasElement) {
         this._canvas = canvas;
         this._canvas.width = Resizer.INITIAL_CANVAS_SIZE;
@@ -13,11 +17,17 @@ export default class Resizer {
         this.onResize();
     }
 
+    /**
+     * Start resizing the canvas
+     */
     public enableAutoResize(): void {
         this._autoResize = true;
         this.onResize();
     }
 
+    /**
+     * Set the browser to fullscreen
+     */
     public enableFullscreen(): void {
         this._canvas.requestFullscreen();
     }
