@@ -36,9 +36,17 @@ export default class Game {
      */
     private loop = (): void => {
         this.clear();
+        this.update();
         this.render();
 
         requestAnimationFrame(this.loop);
+    }
+
+    /**
+     * Call the updater in current state
+     */
+     private update(): void {
+        this._state.update();
     }
 
     /**

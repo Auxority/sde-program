@@ -13,6 +13,10 @@ export default class Running implements GameState {
         // this._gameObjects.push();
     }
 
+    public update(): void {
+        this._player.update();
+    }
+
     public render(): void {
         // Fill the void
         console.log("Render a running game.");

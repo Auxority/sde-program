@@ -1,9 +1,12 @@
-import GameObject from "../game-elements/GameObject";
-
 export default interface GameState {
+
+    /**
+     * update gameobjects' tasks/position
+     */
+    update(): void;
+
     /**
      * Render the game for the current state
-     * @param gameObjects a array of all objects to render
      */
     render(): void;
 }

@@ -9,6 +9,10 @@ export default class Starting implements GameState {
         this._startingBirb = new StartingBirb(ctx, new Vector(0, -8))
     }
 
+    public update(): void {
+        throw new Error("Method not implemented.");
+    }
+
     public render(): void {
         // Fill the void
         // console.log("Render a starting game.");
