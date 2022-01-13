@@ -14,7 +14,7 @@ export default class StartButton {
         this._button = document.createElement("button");
         this._button.innerText = "START";
         this._button.id = "start-button";
-        this._button.style.width = `${Resizer.INITIAL_CANVAS_SIZE}px`;
+        this._button.style.width = `${Resizer.INITIAL_CANVAS_SIZE + 3}px`;
         this._button.style.height = `${Resizer.INITIAL_CANVAS_SIZE * 0.2}px`;
 
         document.body.appendChild(this._button);

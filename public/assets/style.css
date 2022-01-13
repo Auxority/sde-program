@@ -18,7 +18,7 @@ body {
 }
 
 #start-button {
-    background: rgb(0, 255, 136);
+    background: linear-gradient(0deg, rgba(0,255,136,1) 0%, rgba(105,255,185,1) 100%);
     border: none;
     color: rgb(45, 45, 47);
     cursor: pointer;
@@ -27,6 +27,7 @@ body {
     font-weight: bold;
     font-family: 'Comic Sans';
     font-size: 24px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
 @font-face {
