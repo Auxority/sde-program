@@ -1,4 +1,3 @@
-import { Vector } from "../utils/Vector";
 import GameObject from "./GameObject";
 
 export default class Birb extends GameObject {

@@ -1,5 +1,3 @@
-import { Vector } from "../utils/Vector";
-
 export default abstract class GameObject {
     private _ctx: CanvasRenderingContext2D;
     private _position: Vector;

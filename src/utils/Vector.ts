@@ -1,4 +1,4 @@
-export class Vector {
+class Vector {
     private _x: number;
     private _y: number;
 
