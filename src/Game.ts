@@ -29,6 +29,9 @@ export default class Game {
         requestAnimationFrame(this.loop);
     }
 
+    /**
+     * when the "start" button of the game is pressed, to start the game
+     */
     public start(): void {
         this._gameObjects = [];
         this._resizer.enableAutoResize();
@@ -45,10 +48,16 @@ export default class Game {
         requestAnimationFrame(this.loop);
     }
 
+    /**
+     * Call the renderer in current state
+     */
     private render(): void {
         this._state.render(this._gameObjects);
     }
 
+    /**
+     * Clear the canvas
+     */
     private clear(): void {
         this._ctx.clearRect(0, 0, this._canvas.width, this._canvas.height);
     }

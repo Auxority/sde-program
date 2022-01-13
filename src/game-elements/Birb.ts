@@ -11,8 +11,6 @@ export default class Birb extends GameObject {
     private _image = new Image();
     private _keyboard: Keyboard;
     private _state: BirbState;
-    // TODO: state pattern? https://refactoring.guru/design-patterns/state/typescript/example
-    // TODO: private keyboard events handler
 
     public constructor(ctx: CanvasRenderingContext2D, position: Vector) {
         super(ctx, position);
@@ -20,7 +18,7 @@ export default class Birb extends GameObject {
         this._state = new IdleState();
         this._keyboard = new Keyboard();
 
-        this._image = Functions.createImage('./assets/images/birb_assets/idle.png');
+        this._image = Functions.createImage(this._state.getImageSource());
     }
 
     public render(): void {

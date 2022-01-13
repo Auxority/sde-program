@@ -9,6 +9,6 @@ export default class IdleState implements State {
     }
 
     public getImageSource(): string {
-        return `${Birb.STATE_IMAGE_DIR}/idle.png`;
+        return `${Birb.STATE_IMAGE_DIR}/dead.png`;
     }
 }
