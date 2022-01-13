@@ -2,10 +2,11 @@ import GameState from "./GameState";
 
 export default class End implements GameState {
     public constructor(ctx: CanvasRenderingContext2D) {
+        return;
     }
-    
+
     public update(): void {
-        throw new Error("Method not implemented.");
+        return;
     }
 
     public render(): void {

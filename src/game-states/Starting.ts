@@ -10,7 +10,7 @@ export default class Starting implements GameState {
     }
 
     public update(): void {
-        throw new Error("Method not implemented.");
+        return;
     }
 
     public render(): void {
