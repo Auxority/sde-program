@@ -1,4 +1,4 @@
-import StartButton from "./assets/StartButton";
+import StartButton from "./custom-elements/StartButton";
 import Resizer from "./utils/Resizer";
 
 export default class Game {
@@ -27,7 +27,12 @@ export default class Game {
      */
     private loop = (): void => {
         // WOOOOW
+        this.clear();
 
         requestAnimationFrame(this.loop);
+    }
+
+    private clear(): void {
+        this._ctx.clearRect(0, 0, this._canvas.width, this._canvas.height);
     }
 }
