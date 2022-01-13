@@ -1,13 +1,15 @@
-import "./enums/GameState";
 import StartButton from "./custom-elements/StartButton";
 import StartingBirb from "./game-elements/StartingBirb";
 import Resizer from "./utils/Resizer";
+import Vector from "./utils/Vector";
+import * as GameStates from "./game-states/GameStateExports";
+import GameState from "./game-states/GameState";
+import GameObject from "./game-elements/GameObject";
 
 export default class Game {
     // elements
     private _startButton: StartButton;
-    private _startingBirb: StartingBirb;
-
+    private _gameObjects: GameObject[];
     private _state: GameState;
 
     private _canvas: HTMLCanvasElement;
@@ -19,17 +21,18 @@ export default class Game {
         this._ctx = this._canvas.getContext("2d") as CanvasRenderingContext2D;
         this._resizer = new Resizer(this._canvas);
         this._startButton = new StartButton(this);
-        // TODO: cant find Vector browser bug
-        this._startingBirb = new StartingBirb(this._ctx, new Vector(0, -8));
+        this._gameObjects = [];
+        this._gameObjects.push(new StartingBirb(this._ctx, new Vector(0, -8)));
 
-        this._state = GameState.start;
+        this._state = new GameStates.Starting();
 
         requestAnimationFrame(this.loop);
     }
 
     public start(): void {
+        this._gameObjects = [];
         this._resizer.enableAutoResize();
-        this._state = GameState.running;
+        this._state = new GameStates.Running();
     }
 
     /**
@@ -43,13 +46,10 @@ export default class Game {
     }
 
     private render(): void {
-        if (this._state === GameState.start) {
-            this._startingBirb.render();
-        }
+        this._state.render(this._gameObjects);
     }
 
     private clear(): void {
         this._ctx.clearRect(0, 0, this._canvas.width, this._canvas.height);
     }
-
 }

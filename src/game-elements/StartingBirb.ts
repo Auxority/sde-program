@@ -1,6 +1,7 @@
+import Vector from "../utils/Vector";
 import GameObject from "./GameObject";
 
-export default class Birb extends GameObject {
+export default class StartingBirb extends GameObject {
     private _image = new Image();
 
     public constructor(ctx: CanvasRenderingContext2D, position: Vector) {

@@ -1,4 +1,6 @@
-class Mouse {
+import Vector from "../utils/Vector";
+
+export default class Mouse {
     private _canvas: HTMLCanvasElement;
     private _position: Vector;
     private _pressed: boolean;
@@ -29,7 +31,7 @@ class Mouse {
             this._pressed = false;
         }
     }
-    
+
     /**
      * Internal event which updates when the mouse button is pressed.
      */
@@ -56,18 +58,18 @@ class Mouse {
         const touch: Touch = ev.touches[0];
         this._position.set(Math.round(touch.clientX - rect.left), Math.round(touch.clientY - rect.top));
         this._pressed = false;
-    } 
-    
+    }
+
     /**
      * Internal event which updates when the user pressed their finger on the touchscreen.
      */
     private onTouch = (ev: TouchEvent): void => {
-        const rect: DOMRect | ClientRect = this._canvas.getBoundingClientRect();
+        const rect: DOMRect = this._canvas.getBoundingClientRect();
         const touch: Touch = ev.touches[0];
         this._position.set(Math.round(touch.clientX - rect.left), Math.round(touch.clientY - rect.top));
         this._pressed = true;
     }
-    
+
     /**
      * Internal event which updates when the user releases their finger from the touchscreen.
      */
