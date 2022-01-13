@@ -1,6 +1,10 @@
-import Resizer from "./Resizer";
+import StartButton from "./assets/StartButton";
+import Resizer from "./utils/Resizer";
 
 export default class Game {
+    // elements
+    private _startButton: StartButton;
+
     private _canvas: HTMLCanvasElement;
     private _resizer: Resizer;
     private _ctx: CanvasRenderingContext2D;
@@ -9,29 +13,21 @@ export default class Game {
         this._canvas = document.getElementById(canvasId) as HTMLCanvasElement;
         this._ctx = this._canvas.getContext("2d") as CanvasRenderingContext2D;
         this._resizer = new Resizer(this._canvas);
-        this.createStartButton();
+        this._startButton = new StartButton(this);
+
+        requestAnimationFrame(this.loop);
     }
 
-    private start(): void {
+    public start(): void {
         this._resizer.enableAutoResize();
     }
 
-    private createStartButton(): void {
-        const button = document.createElement("button");
-        button.innerText = "Start";
-        button.id = "start-button";
+    /**
+     * Main game loop
+     */
+    private loop = (): void => {
+        // WOOOOW
 
-        document.body.appendChild(button);
-
-        this.addStartButtonEvent(button);
-    }
-
-    private addStartButtonEvent(startButton: HTMLButtonElement) {
-        startButton.addEventListener("click", () => this.onStartButtonClicked(startButton));
-    }
-
-    private onStartButtonClicked(startButton: HTMLButtonElement): void {
-        this.start();
-        startButton.remove();
+        requestAnimationFrame(this.loop);
     }
 }
