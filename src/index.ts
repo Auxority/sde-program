@@ -1,8 +1,12 @@
-const world = 'world';
+import Game from "./Game";
 
-function hello(name: string): string {
-  return `Hello ${name}! `;
+const onWindowResize = (game: Game): void => {
+	if (game.running) {
+		game.enableFullscreen();
+	}
 }
 
-// tslint:disable-next-line: no-console
-console.log(hello(world));
+window.addEventListener("load", () => {
+	const game = new Game("game-canvas");
+	onWindowResize(game);
+});
