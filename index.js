@@ -36,7 +36,7 @@ eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {
   \**************************************/
 /***/ ((__unused_webpack_module, exports) => {
 
-eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.BackgroundColor = void 0;\nvar BackgroundColor;\n(function (BackgroundColor) {\n    BackgroundColor[\"day\"] = \"#4678A5\";\n    BackgroundColor[\"night\"] = \"#02184F\";\n})(BackgroundColor = exports.BackgroundColor || (exports.BackgroundColor = {}));\n\n\n//# sourceURL=webpack://sde-program/./src/enums/BackgroundColor.ts?");
+eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.BackgroundColor = void 0;\nvar BackgroundColor;\n(function (BackgroundColor) {\n    BackgroundColor[\"day\"] = \"#4678A5\";\n    BackgroundColor[\"night\"] = \"#02184F\";\n    BackgroundColor[\"mario\"] = \"#8BACBE\";\n})(BackgroundColor = exports.BackgroundColor || (exports.BackgroundColor = {}));\n\n\n//# sourceURL=webpack://sde-program/./src/enums/BackgroundColor.ts?");
 
 /***/ }),
 
