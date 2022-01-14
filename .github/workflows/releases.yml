@@ -4,6 +4,8 @@ on:
   push:
     tags:
       - '*'
+  pull_request:
+    branches: [ main ]
 
 jobs:
   release:
@@ -17,4 +19,4 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: ${{ steps.tag.outputs.tag }}
+        tag_name: v1
