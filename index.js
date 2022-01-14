@@ -30,6 +30,16 @@ eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {
 
 /***/ }),
 
+/***/ "./src/enums/BackgroundColor.ts":
+/*!**************************************!*\
+  !*** ./src/enums/BackgroundColor.ts ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.BackgroundColor = void 0;\nvar BackgroundColor;\n(function (BackgroundColor) {\n    BackgroundColor[\"day\"] = \"#4678A5\";\n    BackgroundColor[\"night\"] = \"#02184F\";\n})(BackgroundColor = exports.BackgroundColor || (exports.BackgroundColor = {}));\n\n\n//# sourceURL=webpack://sde-program/./src/enums/BackgroundColor.ts?");
+
+/***/ }),
+
 /***/ "./src/enums/KeyCodes.ts":
 /*!*******************************!*\
   !*** ./src/enums/KeyCodes.ts ***!
@@ -37,6 +47,16 @@ eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {
 /***/ ((__unused_webpack_module, exports) => {
 
 eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.KeyCodes = void 0;\nvar KeyCodes;\n(function (KeyCodes) {\n    KeyCodes[\"A\"] = \"KeyA\";\n    KeyCodes[\"B\"] = \"KeyB\";\n    KeyCodes[\"C\"] = \"KeyC\";\n    KeyCodes[\"D\"] = \"KeyD\";\n    KeyCodes[\"E\"] = \"KeyE\";\n    KeyCodes[\"F\"] = \"KeyF\";\n    KeyCodes[\"G\"] = \"KeyG\";\n    KeyCodes[\"H\"] = \"KeyH\";\n    KeyCodes[\"I\"] = \"KeyI\";\n    KeyCodes[\"J\"] = \"KeyJ\";\n    KeyCodes[\"K\"] = \"KeyK\";\n    KeyCodes[\"L\"] = \"KeyL\";\n    KeyCodes[\"M\"] = \"KeyM\";\n    KeyCodes[\"N\"] = \"KeyN\";\n    KeyCodes[\"O\"] = \"KeyO\";\n    KeyCodes[\"P\"] = \"KeyP\";\n    KeyCodes[\"Q\"] = \"KeyQ\";\n    KeyCodes[\"R\"] = \"KeyR\";\n    KeyCodes[\"S\"] = \"KeyS\";\n    KeyCodes[\"T\"] = \"KeyT\";\n    KeyCodes[\"U\"] = \"KeyU\";\n    KeyCodes[\"V\"] = \"KeyV\";\n    KeyCodes[\"W\"] = \"KeyW\";\n    KeyCodes[\"X\"] = \"KeyX\";\n    KeyCodes[\"Y\"] = \"KeyY\";\n    KeyCodes[\"Z\"] = \"KeyZ\";\n    KeyCodes[\"One\"] = \"Digit1\";\n    KeyCodes[\"Two\"] = \"Digit2\";\n    KeyCodes[\"Three\"] = \"Digit3\";\n    KeyCodes[\"Four\"] = \"Digit4\";\n    KeyCodes[\"Five\"] = \"Digit5\";\n    KeyCodes[\"Six\"] = \"Digit6\";\n    KeyCodes[\"Seven\"] = \"Digit7\";\n    KeyCodes[\"Eight\"] = \"Digit8\";\n    KeyCodes[\"Nine\"] = \"Digit9\";\n    KeyCodes[\"Zero\"] = \"Digit0\";\n    KeyCodes[\"Space\"] = \"Space\";\n    KeyCodes[\"ShiftLeft\"] = \"ShiftLeft\";\n    KeyCodes[\"ShiftRight\"] = \"ShiftRight\";\n    KeyCodes[\"ControlLeft\"] = \"ControlLeft\";\n    KeyCodes[\"ControlRight\"] = \"ControlRight\";\n    KeyCodes[\"AltLeft\"] = \"AltLeft\";\n    KeyCodes[\"AltRight\"] = \"AltRight\";\n    KeyCodes[\"ArrowUp\"] = \"ArrowUp\";\n    KeyCodes[\"ArrowRight\"] = \"ArrowRight\";\n    KeyCodes[\"ArrowLeft\"] = \"ArrowLeft\";\n    KeyCodes[\"ArrowDown\"] = \"ArrowDown\";\n})(KeyCodes = exports.KeyCodes || (exports.KeyCodes = {}));\n\n\n//# sourceURL=webpack://sde-program/./src/enums/KeyCodes.ts?");
+
+/***/ }),
+
+/***/ "./src/game-elements/Background.ts":
+/*!*****************************************!*\
+  !*** ./src/game-elements/Background.ts ***!
+  \*****************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nconst BackgroundColor_1 = __webpack_require__(/*! ../enums/BackgroundColor */ \"./src/enums/BackgroundColor.ts\");\nconst Functions_1 = __importDefault(__webpack_require__(/*! ../utils/Functions */ \"./src/utils/Functions.ts\"));\nconst GameObject_1 = __importDefault(__webpack_require__(/*! ./GameObject */ \"./src/game-elements/GameObject.ts\"));\nclass Background extends GameObject_1.default {\n    _color;\n    constructor(ctx, position) {\n        super(ctx, position);\n        this._color = Functions_1.default.getRandomEnum(BackgroundColor_1.BackgroundColor);\n    }\n    render() {\n        this.ctx.save();\n        this.ctx.fillStyle = this._color;\n        this.ctx.fillRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);\n        this.ctx.restore();\n    }\n}\nexports[\"default\"] = Background;\n\n\n//# sourceURL=webpack://sde-program/./src/game-elements/Background.ts?");
 
 /***/ }),
 
@@ -66,7 +86,7 @@ eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {
   \************************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
-eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.StartingBirb = exports.Pipe = exports.Birb = void 0;\nconst Birb_1 = __importDefault(__webpack_require__(/*! ./Birb */ \"./src/game-elements/Birb.ts\"));\nexports.Birb = Birb_1.default;\nconst Pipe_1 = __importDefault(__webpack_require__(/*! ./Pipe */ \"./src/game-elements/Pipe.ts\"));\nexports.Pipe = Pipe_1.default;\nconst StartingBirb_1 = __importDefault(__webpack_require__(/*! ./StartingBirb */ \"./src/game-elements/StartingBirb.ts\"));\nexports.StartingBirb = StartingBirb_1.default;\n\n\n//# sourceURL=webpack://sde-program/./src/game-elements/GameObjectExports.ts?");
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.Background = exports.StartingBirb = exports.Pipe = exports.Birb = void 0;\nconst Background_1 = __importDefault(__webpack_require__(/*! ./Background */ \"./src/game-elements/Background.ts\"));\nexports.Background = Background_1.default;\nconst Birb_1 = __importDefault(__webpack_require__(/*! ./Birb */ \"./src/game-elements/Birb.ts\"));\nexports.Birb = Birb_1.default;\nconst Pipe_1 = __importDefault(__webpack_require__(/*! ./Pipe */ \"./src/game-elements/Pipe.ts\"));\nexports.Pipe = Pipe_1.default;\nconst StartingBirb_1 = __importDefault(__webpack_require__(/*! ./StartingBirb */ \"./src/game-elements/StartingBirb.ts\"));\nexports.StartingBirb = StartingBirb_1.default;\n\n\n//# sourceURL=webpack://sde-program/./src/game-elements/GameObjectExports.ts?");
 
 /***/ }),
 
@@ -146,7 +166,7 @@ eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {
   \************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
-eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nconst GameObjectExports_1 = __webpack_require__(/*! ../game-elements/GameObjectExports */ \"./src/game-elements/GameObjectExports.ts\");\nconst Vector_1 = __importDefault(__webpack_require__(/*! ../utils/Vector */ \"./src/utils/Vector.ts\"));\nclass Running {\n    _pipes;\n    _player;\n    constructor(ctx) {\n        this._pipes = [];\n        this._player = new GameObjectExports_1.Birb(ctx, new Vector_1.default(0, 0));\n        // this._gameObjects.push();\n    }\n    update() {\n        this._player.update();\n    }\n    render() {\n        // Fill the void\n        console.log(\"Render a running game.\");\n        this._player.render();\n        this._pipes.forEach((pipe) => pipe.render());\n    }\n    ;\n}\nexports[\"default\"] = Running;\n\n\n//# sourceURL=webpack://sde-program/./src/game-states/Running.ts?");
+eval("\nvar __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });\n}) : (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    o[k2] = m[k];\n}));\nvar __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {\n    Object.defineProperty(o, \"default\", { enumerable: true, value: v });\n}) : function(o, v) {\n    o[\"default\"] = v;\n});\nvar __importStar = (this && this.__importStar) || function (mod) {\n    if (mod && mod.__esModule) return mod;\n    var result = {};\n    if (mod != null) for (var k in mod) if (k !== \"default\" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);\n    __setModuleDefault(result, mod);\n    return result;\n};\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nconst GameObjects = __importStar(__webpack_require__(/*! ../game-elements/GameObjectExports */ \"./src/game-elements/GameObjectExports.ts\"));\nconst Vector_1 = __importDefault(__webpack_require__(/*! ../utils/Vector */ \"./src/utils/Vector.ts\"));\nclass Running {\n    _pipes;\n    _player;\n    _background;\n    constructor(ctx) {\n        this._background = new GameObjects.Background(ctx, new Vector_1.default(0, 0));\n        this._pipes = [];\n        this._player = new GameObjects.Birb(ctx, new Vector_1.default(0, 0));\n        // this._gameObjects.push();\n    }\n    update() {\n        this._player.update();\n    }\n    render() {\n        // Fill the void\n        console.log(\"Render a running game.\");\n        this._background.render();\n        this._player.render();\n        this._pipes.forEach((pipe) => pipe.render());\n    }\n    ;\n}\nexports[\"default\"] = Running;\n\n\n//# sourceURL=webpack://sde-program/./src/game-states/Running.ts?");
 
 /***/ }),
 
@@ -186,7 +206,7 @@ eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nclas
   \********************************/
 /***/ ((__unused_webpack_module, exports) => {
 
-eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nclass Functions {\n    /**\n     * Get a random number between in between\n     * @param min Minimum value\n     * @param max Maximum value\n     * @returns Number in between\n     */\n    static getRandomArbitrary(min, max) {\n        return Math.random() * (max - min) + min;\n    }\n    /**\n     * Creates an html image element with the given source.\n     * @param src The source of the image.\n     * @returns HTML Image element\n     */\n    static createImage(src) {\n        const image = new Image();\n        image.src = src;\n        return image;\n    }\n}\nexports[\"default\"] = Functions;\n\n\n//# sourceURL=webpack://sde-program/./src/utils/Functions.ts?");
+eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nclass Functions {\n    /**\n     * Get a random number between in between\n     * @param min Minimum value\n     * @param max Maximum value\n     * @returns Number in between\n     */\n    static getRandomArbitrary(min, max) {\n        return Math.random() * (max - min) + min;\n    }\n    /**\n     * Creates an html image element with the given source.\n     * @param src The source of the image.\n     * @returns HTML Image element\n     */\n    static createImage(src) {\n        const image = new Image();\n        image.src = src;\n        return image;\n    }\n    static getRandomEnum(enumName) {\n        const enumValues = Object.values(enumName);\n        const randomIndex = Math.floor(Math.random() * enumValues.length);\n        return enumValues[randomIndex];\n    }\n}\nexports[\"default\"] = Functions;\n\n\n//# sourceURL=webpack://sde-program/./src/utils/Functions.ts?");
 
 /***/ }),
 
