@@ -18,3 +18,10 @@ jobs:
         run: echo "NEXT_VERSION=${HEAD_REF#release/}" >> $GITHUB_ENV
         env:
           HEAD_REF: ${{ github.head_ref }}
+      - name: Create release
+        uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "${{ env.NEXT_VERSION }}"
+          title: "Dev Build"
+          prerelease: true
