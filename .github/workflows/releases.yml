@@ -4,18 +4,16 @@ on:
   schedule:
     - cron: "0 17 * * 5"
   push:
-    tags:
-      - '*'
-  pull_request:
-    branches: [ main ]
+    branches:
+      - "main"
 
 jobs:
-  release:
-    runs-on: ubuntu-latest
+  pre-release:
+    name: "Pre Release"
+    runs-on: "ubuntu-latest"
     steps:
-    - name: Release & Assets
-      uses: Hs1r1us/Release-AIO@v1.0
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        tag_name: v2.0.1
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          title: "Release Build"
