@@ -24,6 +24,9 @@ export default class Birb extends GameObject {
         } else {
             this.changeState(new IdleState());
         }
+        this.velocity.add(this.acceleration);
+        this.position.add(this.velocity);
+        this.acceleration.mul(0);
     }
 
     public render(): void {
