@@ -1,6 +1,8 @@
 name: Automatic release on tags
 
-on: 
+on:
+  schedule:
+    - cron: "0 17 * * 5"
   push:
     tags:
       - '*'
