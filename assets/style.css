@@ -1,0 +1,36 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    background: rgb(35, 35, 37);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#game-canvas {
+    background: rgb(45, 45, 47);
+    display: block;
+}
+
+#start-button {
+    background: linear-gradient(0deg, rgba(0,255,136,1) 0%, rgba(105,255,185,1) 100%);
+    border: none;
+    color: rgb(45, 45, 47);
+    cursor: pointer;
+    outline: none;
+    position: absolute;
+    font-weight: bold;
+    font-family: 'Comic Sans';
+    font-size: 24px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+@font-face {
+    font-family: 'Comic Sans';
+    src: url('./fonts/comic.ttf');
+}
