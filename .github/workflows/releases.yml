@@ -9,12 +9,9 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-    - name: Get tag
-      id: tag
-      uses: dawidd6/action-get-tag@v1
     - name: Release & Assets
       uses: Hs1r1us/Release-AIO@v1.0
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: ${{ steps.tag.outputs.tag }}
+        tag_name: v2.0.0
