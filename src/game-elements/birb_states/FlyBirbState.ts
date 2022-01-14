@@ -12,6 +12,7 @@ export default class FlyState implements State {
 
     public render(ctx: CanvasRenderingContext2D, position: Vector): void {
         // Empty filler
+        console.log(this._image)
         ctx.drawImage(this._image, position.x, position.y);
     }
 
