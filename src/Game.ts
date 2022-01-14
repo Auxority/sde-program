@@ -11,8 +11,10 @@ export default class Game {
     private _canvas: HTMLCanvasElement;
     private _ctx: CanvasRenderingContext2D;
     private _resizer: Resizer;
+    private _gameTick: number;
 
     public constructor(canvasId: string) {
+        this._gameTick = 0;
         this._canvas = document.getElementById(canvasId) as HTMLCanvasElement;
         this._ctx = this._canvas.getContext("2d") as CanvasRenderingContext2D;
         this._resizer = new Resizer(this._canvas);
@@ -35,6 +37,8 @@ export default class Game {
      * Main game loop
      */
     private loop = (): void => {
+        this._gameTick = (this._gameTick + 1) % 144;
+
         this.clear();
         this.update();
         this.render();
