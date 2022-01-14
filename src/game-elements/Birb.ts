@@ -4,6 +4,7 @@ import { IdleState, FlyState } from "./birb_states/BirbStateExports";
 import Vector from "../utils/Vector";
 import Keyboard from "../input/Keyboard";
 import { KeyCodes } from "../enums/KeyCodes";
+import Game from "../Game";
 
 export default class Birb extends GameObject {
     public static readonly STATE_IMAGE_DIR = "./assets/images/birb_assets";
@@ -24,6 +25,7 @@ export default class Birb extends GameObject {
         } else {
             this.changeState(new IdleState());
         }
+        this.acceleration.sub(Game.GRAVITY);
         this.velocity.add(this.acceleration);
         this.position.add(this.velocity);
         this.acceleration.mul(0);

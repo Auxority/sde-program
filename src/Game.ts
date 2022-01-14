@@ -2,8 +2,11 @@ import StartButton from "./custom-elements/StartButton";
 import Resizer from "./utils/Resizer";
 import * as GameStates from "./game-states/GameStateExports";
 import GameState from "./game-states/GameState";
+import Vector from "./utils/Vector";
 
 export default class Game {
+    public static readonly GRAVITY = new Vector(0, -0.025);
+
     // elements
     private _startButton: StartButton;
     private _state: GameState;
@@ -49,7 +52,7 @@ export default class Game {
     /**
      * Call the updater in current state
      */
-     private update(): void {
+    private update(): void {
         this._state.update();
     }
 
