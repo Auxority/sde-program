@@ -1,4 +1,4 @@
-import StartingBirb from "../game-elements/StartingBirb";
+import { StartingBirb } from "../game-elements/GameObjectExports";
 import Vector from "../utils/Vector";
 import GameState from "./GameState";
 

@@ -10,6 +10,10 @@ export default class StartingBirb extends GameObject {
         this._image.src = './assets/favicon.svg';
     }
 
+    public update(): void {
+        throw new Error("Method not implemented.");
+    }
+
     public render(): void {
         this.ctx.drawImage(this._image, this.position.x, this.position.y, 200, 200);
     }

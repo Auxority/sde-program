@@ -7,10 +7,5 @@ export default interface BirbState {
      * @param position position of the bird
      * @param image Image element to render
      */
-    render(ctx: CanvasRenderingContext2D, position: Vector, image: HTMLImageElement): void;
-
-    /**
-     * Get the source image for the bird's state
-     */
-    getImageSource(): string;
+    render(ctx: CanvasRenderingContext2D, position: Vector): void;
 }

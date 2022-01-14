@@ -14,9 +14,11 @@ export default abstract class GameObject {
     /**
      * Run this on every new frame.
      */
-    public update(): void {
-        this._position.add(this._velocity);
-    }
+    public abstract update(): void;
+
+    // public update(): void {
+    //     this._position.add(this._velocity);
+    // }
 
     /**
      * Render the game object to the canvas.

@@ -1,3 +1,5 @@
+import { KeyCodes } from "../enums/KeyCodes";
+
 export default class Keyboard {
     private keyStates: Map<string, boolean>;
 

@@ -1,5 +1,4 @@
-import Birb from "../game-elements/Birb";
-import Pipe from "../game-elements/Pipe";
+import { Pipe, Birb } from "../game-elements/GameObjectExports";
 import Vector from "../utils/Vector";
 import GameState from "./GameState";
 

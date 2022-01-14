@@ -1,4 +1,4 @@
-enum KeyCodes {
+export enum KeyCodes {
     A = "KeyA",
     B = "KeyB",
     C = "KeyC",

@@ -14,6 +14,10 @@ export default class Pipe extends GameObject {
         this.setRandomPipeImage();
     }
 
+    public update(): void {
+        throw new Error("Method not implemented.");
+    }
+
     public render(): void {
         this.ctx.drawImage(this._image, this.position.x, this.position.y);
     }

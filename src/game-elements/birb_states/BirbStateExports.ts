@@ -1,5 +1,9 @@
+import DeadState from "./DeadBirbState";
+import FlyState from "./FlyBirbState";
 import IdleState from "./IdleBirbState";
 
 export {
-    IdleState
+    IdleState,
+    FlyState,
+    DeadState
 }
