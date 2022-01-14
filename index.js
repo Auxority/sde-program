@@ -36,7 +36,7 @@ eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {
   \**************************************/
 /***/ ((__unused_webpack_module, exports) => {
 
-eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.BackgroundColor = void 0;\nvar BackgroundColor;\n(function (BackgroundColor) {\n    BackgroundColor[\"day\"] = \"#4678A5\";\n    BackgroundColor[\"night\"] = \"#02184F\";\n    BackgroundColor[\"mario\"] = \"#8BACBE\";\n})(BackgroundColor = exports.BackgroundColor || (exports.BackgroundColor = {}));\n\n\n//# sourceURL=webpack://sde-program/./src/enums/BackgroundColor.ts?");
+eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.BackgroundColor = void 0;\nvar BackgroundColor;\n(function (BackgroundColor) {\n    BackgroundColor[\"day\"] = \"#4678A5\";\n    BackgroundColor[\"night\"] = \"#02184F\";\n})(BackgroundColor = exports.BackgroundColor || (exports.BackgroundColor = {}));\n\n\n//# sourceURL=webpack://sde-program/./src/enums/BackgroundColor.ts?");
 
 /***/ }),
 
@@ -136,7 +136,7 @@ eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {
   \*******************************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
-eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nconst Functions_1 = __importDefault(__webpack_require__(/*! ../../utils/Functions */ \"./src/utils/Functions.ts\"));\nconst Birb_1 = __importDefault(__webpack_require__(/*! ../Birb */ \"./src/game-elements/Birb.ts\"));\nclass FlyState {\n    _image = new Image();\n    constructor() {\n        this._image = Functions_1.default.createImage(this.getImageSource());\n    }\n    render(ctx, position) {\n        // Empty filler\n        console.log(this._image);\n        ctx.drawImage(this._image, position.x, position.y);\n    }\n    getImageSource() {\n        return `${Birb_1.default.STATE_IMAGE_DIR}/fly.png`;\n    }\n}\nexports[\"default\"] = FlyState;\n\n\n//# sourceURL=webpack://sde-program/./src/game-elements/birb_states/FlyBirbState.ts?");
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nconst Functions_1 = __importDefault(__webpack_require__(/*! ../../utils/Functions */ \"./src/utils/Functions.ts\"));\nconst Birb_1 = __importDefault(__webpack_require__(/*! ../Birb */ \"./src/game-elements/Birb.ts\"));\nclass FlyState {\n    _image = new Image();\n    constructor() {\n        this._image = Functions_1.default.createImage(this.getImageSource());\n    }\n    render(ctx, position) {\n        // Empty filler\n        ctx.drawImage(this._image, position.x, position.y);\n    }\n    getImageSource() {\n        return `${Birb_1.default.STATE_IMAGE_DIR}/fly.png`;\n    }\n}\nexports[\"default\"] = FlyState;\n\n\n//# sourceURL=webpack://sde-program/./src/game-elements/birb_states/FlyBirbState.ts?");
 
 /***/ }),
 
