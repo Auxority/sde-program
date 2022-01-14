@@ -20,4 +20,10 @@ export default abstract class Functions {
         image.src = src;
         return image;
     }
+
+    public static getRandomEnum<T>(enumName: T): T[keyof T] {
+        const enumValues = Object.values(enumName) as unknown as T[keyof T][];
+        const randomIndex = Math.floor(Math.random() * enumValues.length);
+        return enumValues[randomIndex];
+    }
 }
