@@ -30,13 +30,23 @@ eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {
 
 /***/ }),
 
+/***/ "./src/enums/KeyCodes.ts":
+/*!*******************************!*\
+  !*** ./src/enums/KeyCodes.ts ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.KeyCodes = void 0;\nvar KeyCodes;\n(function (KeyCodes) {\n    KeyCodes[\"A\"] = \"KeyA\";\n    KeyCodes[\"B\"] = \"KeyB\";\n    KeyCodes[\"C\"] = \"KeyC\";\n    KeyCodes[\"D\"] = \"KeyD\";\n    KeyCodes[\"E\"] = \"KeyE\";\n    KeyCodes[\"F\"] = \"KeyF\";\n    KeyCodes[\"G\"] = \"KeyG\";\n    KeyCodes[\"H\"] = \"KeyH\";\n    KeyCodes[\"I\"] = \"KeyI\";\n    KeyCodes[\"J\"] = \"KeyJ\";\n    KeyCodes[\"K\"] = \"KeyK\";\n    KeyCodes[\"L\"] = \"KeyL\";\n    KeyCodes[\"M\"] = \"KeyM\";\n    KeyCodes[\"N\"] = \"KeyN\";\n    KeyCodes[\"O\"] = \"KeyO\";\n    KeyCodes[\"P\"] = \"KeyP\";\n    KeyCodes[\"Q\"] = \"KeyQ\";\n    KeyCodes[\"R\"] = \"KeyR\";\n    KeyCodes[\"S\"] = \"KeyS\";\n    KeyCodes[\"T\"] = \"KeyT\";\n    KeyCodes[\"U\"] = \"KeyU\";\n    KeyCodes[\"V\"] = \"KeyV\";\n    KeyCodes[\"W\"] = \"KeyW\";\n    KeyCodes[\"X\"] = \"KeyX\";\n    KeyCodes[\"Y\"] = \"KeyY\";\n    KeyCodes[\"Z\"] = \"KeyZ\";\n    KeyCodes[\"One\"] = \"Digit1\";\n    KeyCodes[\"Two\"] = \"Digit2\";\n    KeyCodes[\"Three\"] = \"Digit3\";\n    KeyCodes[\"Four\"] = \"Digit4\";\n    KeyCodes[\"Five\"] = \"Digit5\";\n    KeyCodes[\"Six\"] = \"Digit6\";\n    KeyCodes[\"Seven\"] = \"Digit7\";\n    KeyCodes[\"Eight\"] = \"Digit8\";\n    KeyCodes[\"Nine\"] = \"Digit9\";\n    KeyCodes[\"Zero\"] = \"Digit0\";\n    KeyCodes[\"Space\"] = \"Space\";\n    KeyCodes[\"ShiftLeft\"] = \"ShiftLeft\";\n    KeyCodes[\"ShiftRight\"] = \"ShiftRight\";\n    KeyCodes[\"ControlLeft\"] = \"ControlLeft\";\n    KeyCodes[\"ControlRight\"] = \"ControlRight\";\n    KeyCodes[\"AltLeft\"] = \"AltLeft\";\n    KeyCodes[\"AltRight\"] = \"AltRight\";\n    KeyCodes[\"ArrowUp\"] = \"ArrowUp\";\n    KeyCodes[\"ArrowRight\"] = \"ArrowRight\";\n    KeyCodes[\"ArrowLeft\"] = \"ArrowLeft\";\n    KeyCodes[\"ArrowDown\"] = \"ArrowDown\";\n})(KeyCodes = exports.KeyCodes || (exports.KeyCodes = {}));\n\n\n//# sourceURL=webpack://sde-program/./src/enums/KeyCodes.ts?");
+
+/***/ }),
+
 /***/ "./src/game-elements/Birb.ts":
 /*!***********************************!*\
   !*** ./src/game-elements/Birb.ts ***!
   \***********************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
-eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nconst GameObject_1 = __importDefault(__webpack_require__(/*! ./GameObject */ \"./src/game-elements/GameObject.ts\"));\nconst Functions_1 = __importDefault(__webpack_require__(/*! ../utils/Functions */ \"./src/utils/Functions.ts\"));\nconst BirbStateExports_1 = __webpack_require__(/*! ./birb_states/BirbStateExports */ \"./src/game-elements/birb_states/BirbStateExports.ts\");\nconst Keyboard_1 = __importDefault(__webpack_require__(/*! ../input/Keyboard */ \"./src/input/Keyboard.ts\"));\nclass Birb extends GameObject_1.default {\n    static STATE_IMAGE_DIR = \"./assets/images/birb_assets/\";\n    _image = new Image();\n    _keyboard;\n    _state;\n    constructor(ctx, position) {\n        super(ctx, position);\n        this._state = new BirbStateExports_1.IdleState();\n        this._keyboard = new Keyboard_1.default();\n        this._image = Functions_1.default.createImage(this._state.getImageSource());\n    }\n    render() {\n        this._state.render(this.ctx, this.position, this._image);\n    }\n}\nexports[\"default\"] = Birb;\n\n\n//# sourceURL=webpack://sde-program/./src/game-elements/Birb.ts?");
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nconst GameObject_1 = __importDefault(__webpack_require__(/*! ./GameObject */ \"./src/game-elements/GameObject.ts\"));\nconst BirbStateExports_1 = __webpack_require__(/*! ./birb_states/BirbStateExports */ \"./src/game-elements/birb_states/BirbStateExports.ts\");\nconst Keyboard_1 = __importDefault(__webpack_require__(/*! ../input/Keyboard */ \"./src/input/Keyboard.ts\"));\nconst KeyCodes_1 = __webpack_require__(/*! ../enums/KeyCodes */ \"./src/enums/KeyCodes.ts\");\nclass Birb extends GameObject_1.default {\n    static STATE_IMAGE_DIR = \"./assets/images/birb_assets\";\n    _keyboard;\n    _state;\n    constructor(ctx, position) {\n        super(ctx, position);\n        this._state = new BirbStateExports_1.IdleState();\n        this._keyboard = new Keyboard_1.default();\n    }\n    update() {\n        if (this._keyboard.isKeyDown(KeyCodes_1.KeyCodes.Space)) {\n            this.changeState(new BirbStateExports_1.FlyState());\n        }\n        else {\n            this.changeState(new BirbStateExports_1.IdleState());\n        }\n    }\n    render() {\n        this._state.render(this.ctx, this.position);\n    }\n    changeState(state) {\n        if (this._state !== state) {\n            this._state = state;\n        }\n    }\n}\nexports[\"default\"] = Birb;\n\n\n//# sourceURL=webpack://sde-program/./src/game-elements/Birb.ts?");
 
 /***/ }),
 
@@ -46,7 +56,27 @@ eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {
   \*****************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
-eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nconst Vector_1 = __importDefault(__webpack_require__(/*! ../utils/Vector */ \"./src/utils/Vector.ts\"));\nclass GameObject {\n    _ctx;\n    _position;\n    _velocity;\n    constructor(ctx, position) {\n        this._ctx = ctx;\n        this._position = position;\n        this._velocity = new Vector_1.default(0, 0);\n    }\n    /**\n     * Run this on every new frame.\n     */\n    update() {\n        this._position.add(this._velocity);\n    }\n    get ctx() {\n        return this._ctx;\n    }\n    get position() {\n        return this._position;\n    }\n    get velocity() {\n        return this._velocity;\n    }\n}\nexports[\"default\"] = GameObject;\n\n\n//# sourceURL=webpack://sde-program/./src/game-elements/GameObject.ts?");
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nconst Vector_1 = __importDefault(__webpack_require__(/*! ../utils/Vector */ \"./src/utils/Vector.ts\"));\nclass GameObject {\n    _ctx;\n    _position;\n    _velocity;\n    constructor(ctx, position) {\n        this._ctx = ctx;\n        this._position = position;\n        this._velocity = new Vector_1.default(0, 0);\n    }\n    get ctx() {\n        return this._ctx;\n    }\n    get position() {\n        return this._position;\n    }\n    get velocity() {\n        return this._velocity;\n    }\n}\nexports[\"default\"] = GameObject;\n\n\n//# sourceURL=webpack://sde-program/./src/game-elements/GameObject.ts?");
+
+/***/ }),
+
+/***/ "./src/game-elements/GameObjectExports.ts":
+/*!************************************************!*\
+  !*** ./src/game-elements/GameObjectExports.ts ***!
+  \************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.StartingBirb = exports.Pipe = exports.Birb = void 0;\nconst Birb_1 = __importDefault(__webpack_require__(/*! ./Birb */ \"./src/game-elements/Birb.ts\"));\nexports.Birb = Birb_1.default;\nconst Pipe_1 = __importDefault(__webpack_require__(/*! ./Pipe */ \"./src/game-elements/Pipe.ts\"));\nexports.Pipe = Pipe_1.default;\nconst StartingBirb_1 = __importDefault(__webpack_require__(/*! ./StartingBirb */ \"./src/game-elements/StartingBirb.ts\"));\nexports.StartingBirb = StartingBirb_1.default;\n\n\n//# sourceURL=webpack://sde-program/./src/game-elements/GameObjectExports.ts?");
+
+/***/ }),
+
+/***/ "./src/game-elements/Pipe.ts":
+/*!***********************************!*\
+  !*** ./src/game-elements/Pipe.ts ***!
+  \***********************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nconst Functions_1 = __importDefault(__webpack_require__(/*! ../utils/Functions */ \"./src/utils/Functions.ts\"));\nconst GameObject_1 = __importDefault(__webpack_require__(/*! ./GameObject */ \"./src/game-elements/GameObject.ts\"));\nclass Pipe extends GameObject_1.default {\n    _image = new Image();\n    _extendedImage = new Image();\n    // TODO: abstract pipe class for each color?\n    // TODO: Pipe factory design pattern?\n    constructor(ctx, position) {\n        super(ctx, position);\n        this.setRandomPipeImage();\n    }\n    update() {\n        throw new Error(\"Method not implemented.\");\n    }\n    render() {\n        this.ctx.drawImage(this._image, this.position.x, this.position.y);\n    }\n    setRandomPipeImage() {\n        const imageNumber = Functions_1.default.getRandomArbitrary(1, 7);\n        this._image.src = `./assets/images/pipes/${imageNumber}.png`;\n        this._extendedImage.src = `./assets/images/extend_pipes/${imageNumber}.png`;\n    }\n}\nexports[\"default\"] = Pipe;\n\n\n//# sourceURL=webpack://sde-program/./src/game-elements/Pipe.ts?");
 
 /***/ }),
 
@@ -56,7 +86,7 @@ eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {
   \*******************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
-eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nconst GameObject_1 = __importDefault(__webpack_require__(/*! ./GameObject */ \"./src/game-elements/GameObject.ts\"));\nclass StartingBirb extends GameObject_1.default {\n    _image = new Image();\n    constructor(ctx, position) {\n        super(ctx, position);\n        this._image.src = './assets/favicon.svg';\n    }\n    render() {\n        this.ctx.drawImage(this._image, this.position.x, this.position.y, 200, 200);\n    }\n}\nexports[\"default\"] = StartingBirb;\n\n\n//# sourceURL=webpack://sde-program/./src/game-elements/StartingBirb.ts?");
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nconst GameObject_1 = __importDefault(__webpack_require__(/*! ./GameObject */ \"./src/game-elements/GameObject.ts\"));\nclass StartingBirb extends GameObject_1.default {\n    _image = new Image();\n    constructor(ctx, position) {\n        super(ctx, position);\n        this._image.src = './assets/favicon.svg';\n    }\n    update() {\n        throw new Error(\"Method not implemented.\");\n    }\n    render() {\n        this.ctx.drawImage(this._image, this.position.x, this.position.y, 200, 200);\n    }\n}\nexports[\"default\"] = StartingBirb;\n\n\n//# sourceURL=webpack://sde-program/./src/game-elements/StartingBirb.ts?");
 
 /***/ }),
 
@@ -66,7 +96,27 @@ eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {
   \***********************************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
-eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.IdleState = void 0;\nconst IdleBirbState_1 = __importDefault(__webpack_require__(/*! ./IdleBirbState */ \"./src/game-elements/birb_states/IdleBirbState.ts\"));\nexports.IdleState = IdleBirbState_1.default;\n\n\n//# sourceURL=webpack://sde-program/./src/game-elements/birb_states/BirbStateExports.ts?");
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.DeadState = exports.FlyState = exports.IdleState = void 0;\nconst DeadBirbState_1 = __importDefault(__webpack_require__(/*! ./DeadBirbState */ \"./src/game-elements/birb_states/DeadBirbState.ts\"));\nexports.DeadState = DeadBirbState_1.default;\nconst FlyBirbState_1 = __importDefault(__webpack_require__(/*! ./FlyBirbState */ \"./src/game-elements/birb_states/FlyBirbState.ts\"));\nexports.FlyState = FlyBirbState_1.default;\nconst IdleBirbState_1 = __importDefault(__webpack_require__(/*! ./IdleBirbState */ \"./src/game-elements/birb_states/IdleBirbState.ts\"));\nexports.IdleState = IdleBirbState_1.default;\n\n\n//# sourceURL=webpack://sde-program/./src/game-elements/birb_states/BirbStateExports.ts?");
+
+/***/ }),
+
+/***/ "./src/game-elements/birb_states/DeadBirbState.ts":
+/*!********************************************************!*\
+  !*** ./src/game-elements/birb_states/DeadBirbState.ts ***!
+  \********************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nconst Functions_1 = __importDefault(__webpack_require__(/*! ../../utils/Functions */ \"./src/utils/Functions.ts\"));\nconst Birb_1 = __importDefault(__webpack_require__(/*! ../Birb */ \"./src/game-elements/Birb.ts\"));\nclass DeadState {\n    _image = new Image();\n    constructor() {\n        this._image = Functions_1.default.createImage(this.getImageSource());\n    }\n    render(ctx, position) {\n        // Empty filler\n        ctx.drawImage(this._image, position.x, position.y);\n    }\n    getImageSource() {\n        return `${Birb_1.default.STATE_IMAGE_DIR}/dead.png`;\n    }\n}\nexports[\"default\"] = DeadState;\n\n\n//# sourceURL=webpack://sde-program/./src/game-elements/birb_states/DeadBirbState.ts?");
+
+/***/ }),
+
+/***/ "./src/game-elements/birb_states/FlyBirbState.ts":
+/*!*******************************************************!*\
+  !*** ./src/game-elements/birb_states/FlyBirbState.ts ***!
+  \*******************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nconst Functions_1 = __importDefault(__webpack_require__(/*! ../../utils/Functions */ \"./src/utils/Functions.ts\"));\nconst Birb_1 = __importDefault(__webpack_require__(/*! ../Birb */ \"./src/game-elements/Birb.ts\"));\nclass FlyState {\n    _image = new Image();\n    constructor() {\n        this._image = Functions_1.default.createImage(this.getImageSource());\n    }\n    render(ctx, position) {\n        // Empty filler\n        console.log(this._image);\n        ctx.drawImage(this._image, position.x, position.y);\n    }\n    getImageSource() {\n        return `${Birb_1.default.STATE_IMAGE_DIR}/fly.png`;\n    }\n}\nexports[\"default\"] = FlyState;\n\n\n//# sourceURL=webpack://sde-program/./src/game-elements/birb_states/FlyBirbState.ts?");
 
 /***/ }),
 
@@ -76,7 +126,7 @@ eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {
   \********************************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
-eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nconst Birb_1 = __importDefault(__webpack_require__(/*! ../Birb */ \"./src/game-elements/Birb.ts\"));\nclass IdleState {\n    render(ctx, position, image) {\n        // Empty filler\n        ctx.drawImage(image, position.x, position.y);\n    }\n    getImageSource() {\n        return `${Birb_1.default.STATE_IMAGE_DIR}/idle.png`;\n    }\n}\nexports[\"default\"] = IdleState;\n\n\n//# sourceURL=webpack://sde-program/./src/game-elements/birb_states/IdleBirbState.ts?");
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nconst Functions_1 = __importDefault(__webpack_require__(/*! ../../utils/Functions */ \"./src/utils/Functions.ts\"));\nconst Birb_1 = __importDefault(__webpack_require__(/*! ../Birb */ \"./src/game-elements/Birb.ts\"));\nclass IdleState {\n    _image = new Image();\n    constructor() {\n        this._image = Functions_1.default.createImage(this.getImageSource());\n    }\n    render(ctx, position) {\n        // Empty filler\n        ctx.drawImage(this._image, position.x, position.y);\n    }\n    getImageSource() {\n        return `${Birb_1.default.STATE_IMAGE_DIR}/idle.png`;\n    }\n}\nexports[\"default\"] = IdleState;\n\n\n//# sourceURL=webpack://sde-program/./src/game-elements/birb_states/IdleBirbState.ts?");
 
 /***/ }),
 
@@ -96,7 +146,7 @@ eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {
   \************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
-eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nconst Birb_1 = __importDefault(__webpack_require__(/*! ../game-elements/Birb */ \"./src/game-elements/Birb.ts\"));\nconst Vector_1 = __importDefault(__webpack_require__(/*! ../utils/Vector */ \"./src/utils/Vector.ts\"));\nclass Running {\n    _pipes;\n    _player;\n    constructor(ctx) {\n        this._pipes = [];\n        this._player = new Birb_1.default(ctx, new Vector_1.default(0, 0));\n        // this._gameObjects.push();\n    }\n    update() {\n        this._player.update();\n    }\n    render() {\n        // Fill the void\n        console.log(\"Render a running game.\");\n        this._player.render();\n        this._pipes.forEach((pipe) => pipe.render());\n    }\n    ;\n}\nexports[\"default\"] = Running;\n\n\n//# sourceURL=webpack://sde-program/./src/game-states/Running.ts?");
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nconst GameObjectExports_1 = __webpack_require__(/*! ../game-elements/GameObjectExports */ \"./src/game-elements/GameObjectExports.ts\");\nconst Vector_1 = __importDefault(__webpack_require__(/*! ../utils/Vector */ \"./src/utils/Vector.ts\"));\nclass Running {\n    _pipes;\n    _player;\n    constructor(ctx) {\n        this._pipes = [];\n        this._player = new GameObjectExports_1.Birb(ctx, new Vector_1.default(0, 0));\n        // this._gameObjects.push();\n    }\n    update() {\n        this._player.update();\n    }\n    render() {\n        // Fill the void\n        console.log(\"Render a running game.\");\n        this._player.render();\n        this._pipes.forEach((pipe) => pipe.render());\n    }\n    ;\n}\nexports[\"default\"] = Running;\n\n\n//# sourceURL=webpack://sde-program/./src/game-states/Running.ts?");
 
 /***/ }),
 
@@ -106,7 +156,7 @@ eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {
   \*************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
-eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nconst StartingBirb_1 = __importDefault(__webpack_require__(/*! ../game-elements/StartingBirb */ \"./src/game-elements/StartingBirb.ts\"));\nconst Vector_1 = __importDefault(__webpack_require__(/*! ../utils/Vector */ \"./src/utils/Vector.ts\"));\nclass Starting {\n    _startingBirb;\n    constructor(ctx) {\n        this._startingBirb = new StartingBirb_1.default(ctx, new Vector_1.default(0, -8));\n    }\n    update() {\n        return;\n    }\n    render() {\n        // Fill the void\n        // console.log(\"Render a starting game.\");\n        this._startingBirb.render();\n    }\n    ;\n}\nexports[\"default\"] = Starting;\n\n\n//# sourceURL=webpack://sde-program/./src/game-states/Starting.ts?");
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nconst GameObjectExports_1 = __webpack_require__(/*! ../game-elements/GameObjectExports */ \"./src/game-elements/GameObjectExports.ts\");\nconst Vector_1 = __importDefault(__webpack_require__(/*! ../utils/Vector */ \"./src/utils/Vector.ts\"));\nclass Starting {\n    _startingBirb;\n    constructor(ctx) {\n        this._startingBirb = new GameObjectExports_1.StartingBirb(ctx, new Vector_1.default(0, -8));\n    }\n    update() {\n        return;\n    }\n    render() {\n        // Fill the void\n        // console.log(\"Render a starting game.\");\n        this._startingBirb.render();\n    }\n    ;\n}\nexports[\"default\"] = Starting;\n\n\n//# sourceURL=webpack://sde-program/./src/game-states/Starting.ts?");
 
 /***/ }),
 
