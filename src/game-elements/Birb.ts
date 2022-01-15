@@ -53,7 +53,7 @@ export default class Birb extends GameObject {
     private applyPhysics(): void {
         this.acceleration.sub(Game.GRAVITY);
         this.velocity.add(this.acceleration).limitY(-this.MAX_SPEED, this.MAX_SPEED);
-        this.position.add(this.velocity).limitY(-this.BIRD_HEIGHT * 0.5, this.ctx.canvas.height - this.BIRD_HEIGHT * 0.5);
+        this.position.add(this.velocity);
         this.acceleration.mul(0);
     }
 
