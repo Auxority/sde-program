@@ -8,11 +8,12 @@ import Game from "../Game";
 
 export default class Birb extends GameObject {
     public static readonly STATE_IMAGE_DIR = "./assets/images/birb_assets";
+    private readonly MAX_SPEED = 4;
+    private readonly BIRD_HEIGHT = 32;
 
     private _keyboard: Keyboard;
     private _state: BirbState;
     private _flyDebounce: number;
-    private _flying: boolean;
 
     public constructor(ctx: CanvasRenderingContext2D, position: Vector) {
         super(ctx, position);
@@ -20,13 +21,12 @@ export default class Birb extends GameObject {
         this._state = new IdleState();
         this._keyboard = new Keyboard();
         this._flyDebounce = 0;
-        this._flying = false;
     }
 
     public processInput(): void {
+        // TODO: Move this to the birb states
         if (this._flyDebounce > 0) {
             this._flyDebounce--;
-            this._flying = false;
         }
         if (this._keyboard.isKeyDown(KeyCodes.Space)) {
             if (this._flyDebounce === 0) {
@@ -43,14 +43,18 @@ export default class Birb extends GameObject {
             this.changeState(new FlyState());
         }
         this._state.update(this.position, this.velocity, this.acceleration);
-        this.acceleration.sub(Game.GRAVITY);
-        this.velocity.add(this.acceleration);
-        this.position.add(this.velocity);
-        this.acceleration.mul(0);
+        this.applyPhysics();
     }
 
     public render(): void {
         this._state.render(this.ctx, this.position);
+    }
+
+    private applyPhysics(): void {
+        this.acceleration.sub(Game.GRAVITY);
+        this.velocity.add(this.acceleration).limitY(-this.MAX_SPEED, this.MAX_SPEED);
+        this.position.add(this.velocity).limitY(-this.BIRD_HEIGHT * 0.5, this.ctx.canvas.height - this.BIRD_HEIGHT * 0.5);
+        this.acceleration.mul(0);
     }
 
     private changeState(state: BirbState): void {

@@ -181,6 +181,32 @@ export default class Vector {
     }
 
     /**
+     * Limits x values
+     */
+    public limitX(min?: number, max?: number): Vector {
+        if (typeof min === "number") {
+            this._x = Math.max(min, this._x);
+        }
+        if (typeof max === "number") {
+            this._x = Math.min(max, this._x);
+        }
+        return this;
+    }
+
+    /**
+     * Limits y values
+     */
+    public limitY(min?: number, max?: number): Vector {
+        if (typeof min === "number") {
+            this._y = Math.max(min, this._y);
+        }
+        if (typeof max === "number") {
+            this._y = Math.min(max, this._y);
+        }
+        return this;
+    }
+
+    /**
      * Calculates the dot product of two vectors.
      * @returns The dot product.
      */
