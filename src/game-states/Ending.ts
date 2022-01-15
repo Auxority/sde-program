@@ -1,12 +1,16 @@
 import GameState from "./GameState";
 
-export default class End implements GameState {
+export default class Ending implements GameState {
     public constructor(ctx: CanvasRenderingContext2D) {
-        return;
+        // empty
+    }
+
+    public processInput(): void {
+        // empty
     }
 
     public update(): void {
-        return;
+        // empty
     }
 
     public render(): void {

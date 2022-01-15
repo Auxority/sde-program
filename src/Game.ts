@@ -43,10 +43,18 @@ export default class Game {
         this._gameTick = (this._gameTick + 1) % 144;
 
         this.clear();
+        this.processInput();
         this.update();
         this.render();
 
         requestAnimationFrame(this.loop);
+    }
+
+    /**
+     * Call the input processor in the current state
+     */
+    private processInput(): void {
+        this._state.processInput();
     }
 
     /**

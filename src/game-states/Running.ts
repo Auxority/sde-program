@@ -10,8 +10,13 @@ export default class Running implements GameState {
     public constructor(ctx: CanvasRenderingContext2D) {
         this._background = new GameObjects.Background(ctx, new Vector(0, 0))
         this._pipes = [];
-        this._player = new GameObjects.Birb(ctx, new Vector(0, 0));
+        this._player = new GameObjects.Birb(ctx, new Vector(0.1 * ctx.canvas.width, 0.5 * ctx.canvas.height));
         // this._gameObjects.push();
+    }
+
+    public processInput(): void {
+        // fill the void
+        this._player.processInput();
     }
 
     public update(): void {
@@ -20,9 +25,8 @@ export default class Running implements GameState {
 
     public render(): void {
         // Fill the void
-        console.log("Render a running game.");
         this._background.render();
         this._player.render();
         this._pipes.forEach((pipe) => pipe.render());
-    };
+    }
 }

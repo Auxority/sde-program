@@ -10,6 +10,10 @@ export default class DeadState implements State {
         this._image = Functions.createImage(this.getImageSource());
     }
 
+    public update(position: Vector, velocity: Vector, acceleration: Vector): void {
+        // empty
+    }
+
     public render(ctx: CanvasRenderingContext2D, position: Vector): void {
         // Empty filler
         ctx.drawImage(this._image, position.x, position.y);
