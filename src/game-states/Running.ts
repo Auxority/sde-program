@@ -26,6 +26,7 @@ export default class Running implements GameState {
 
     public update(): void {
         this._player.update();
+        this._background.update();
         this._pipes.forEach((pipe) => this.updatePipe(pipe));
     }
 
