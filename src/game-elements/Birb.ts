@@ -8,7 +8,8 @@ import Game from "../Game";
 
 export default class Birb extends GameObject {
     public static readonly STATE_IMAGE_DIR = "./assets/images/birb_assets";
-    private readonly MAX_SPEED = 10;
+    private readonly MAX_SPEED = 20;
+    private readonly JUMP_FORCE = 6;
 
     private _keyboard: Keyboard;
     private _state: BirbState;
@@ -52,7 +53,7 @@ export default class Birb extends GameObject {
     private applyPhysics(): void {
         if (this._jumpPressed && !this._jumpExecuted) {
             this._jumpExecuted = true;
-            this.acceleration.sub(new Vector(0, 8));
+            this.acceleration.sub(new Vector(0, this.JUMP_FORCE));
         }
         this.acceleration.sub(Game.GRAVITY);
         this.velocity.add(this.acceleration).limitY(-this.MAX_SPEED, this.MAX_SPEED);

@@ -7,7 +7,7 @@ import FrameLimiter from "./utils/FrameLimiter";
 
 // TODO: Apply Singleton design pattern to game
 export default class Game {
-    public static readonly GRAVITY = new Vector(0, -0.06);
+    public static readonly GRAVITY = new Vector(0, -0.2);
     // elements
     private _startButton: StartButton;
     private _state: GameState;
@@ -43,7 +43,7 @@ export default class Game {
      * Main game loop
      */
     private loop = (): void => {
-        this._gameTick = (this._gameTick + 1) % 144;
+        this._gameTick = (this._gameTick + 1) % 1000;
 
         this.clear();
         this.processInput();
