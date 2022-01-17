@@ -59,6 +59,6 @@ export default class Running implements GameState {
             this._ctx,
             pipePosition
         );
-        this._pipes.push(newPipe);        
+        this._pipes.push(newPipe);
     }
 }
