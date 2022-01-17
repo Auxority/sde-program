@@ -8,6 +8,7 @@ import FrameLimiter from "./utils/FrameLimiter";
 // TODO: Apply Singleton design pattern to game
 export default class Game {
     public static readonly GRAVITY = new Vector(0, -0.2);
+    private static game: Game;
     // elements
     private _startButton: StartButton;
     private _state: GameState;
@@ -18,7 +19,7 @@ export default class Game {
     private _gameTick: number;
     private _frameLimit: FrameLimiter;
 
-    public constructor(canvasId: string) {
+    private constructor(canvasId: string) {
         this._gameTick = 0;
         this._canvas = document.getElementById(canvasId) as HTMLCanvasElement;
         this._ctx = this._canvas.getContext("2d") as CanvasRenderingContext2D;
@@ -29,6 +30,13 @@ export default class Game {
         this._state = new GameStates.Starting(this._ctx);
 
         requestAnimationFrame(this.loop);
+    }
+
+    public static createGame(canvasId: string): Game {
+        if (!this.game) {
+            this.game = new Game(canvasId);
+        }
+        return this.game;
     }
 
     /**

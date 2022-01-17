@@ -1,5 +1,5 @@
 import Game from "./Game";
 
 window.addEventListener("load", () => {
-	const game = new Game("game-canvas");
+	const game = Game.createGame("game-canvas");
 });
