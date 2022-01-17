@@ -29,7 +29,7 @@ export default class Pipe extends GameObject {
     private updatePipe(pipe: Pipes): void {
         pipe.update();
         if (pipe.isGone()) {
-            const scoreboard = GameObjects.Scoreboard.getScoreboard(this.ctx, new Vector(this.ctx.canvas.width * 0.5, this.ctx.canvas.height * 0.05));
+            const scoreboard = GameObjects.Scoreboard.getScoreboard(this.ctx);
             scoreboard.increase();
             this.removeOldestPipe();
             this.createNewPipe();

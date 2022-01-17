@@ -10,8 +10,9 @@ export default class Scoreboard extends GameObject {
         this._score = 0;
     }
 
-    public static getScoreboard(ctx: CanvasRenderingContext2D, position: Vector): Scoreboard {
+    public static getScoreboard(ctx: CanvasRenderingContext2D): Scoreboard {
         if (!this._scoreboard) {
+            const position = new Vector(ctx.canvas.width * 0.5, ctx.canvas.height * 0.05)
             this._scoreboard = new Scoreboard(ctx, position);
         }
         return this._scoreboard;

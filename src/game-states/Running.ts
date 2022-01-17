@@ -15,7 +15,7 @@ export default class Running implements GameState {
         this._background = new GameObjects.Background(ctx, new Vector(0, 0))
         this._player = new GameObjects.Birb(ctx, new Vector(0.1 * ctx.canvas.width, 0.5 * ctx.canvas.height));
         this._pipes = new GameObjects.Pipe(ctx, new Vector(0, 0));
-        this._scoreboard = GameObjects.Scoreboard.getScoreboard(ctx, new Vector(ctx.canvas.width * 0.5, ctx.canvas.height * 0.05));
+        this._scoreboard = GameObjects.Scoreboard.getScoreboard(ctx);
     }
 
     public processInput(): void {
