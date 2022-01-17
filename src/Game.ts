@@ -46,10 +46,10 @@ export default class Game {
         this._gameTick = (this._gameTick + 1) % 144;
 
         this.clear();
+        this.processInput();
         if (this._frameLimit.withinLimit()) {
-            this.processInput();
+            this.update();
         }
-        this.update();
         this.render();
 
         requestAnimationFrame(this.loop);
