@@ -26,12 +26,7 @@ export default class Running implements GameState {
 
     public update(): void {
         this._player.update();
-        this._pipes.forEach((pipe, index) => {
-            pipe.update();
-            if (pipe.hasMetPlayer()) {
-                this.replacePipe(index)
-            }
-        });
+        this._pipes.forEach((pipe) => this.updatePipe(pipe));
     }
 
     public render(): void {
@@ -40,14 +35,26 @@ export default class Running implements GameState {
         this._pipes.forEach((pipe) => pipe.render());
     }
 
+    private updatePipe(pipe: GameObjects.Pipe): void {
+        pipe.update();
+        if (pipe.isGone()) {
+            this.removeOldestPipe();
+            this.createNewPipe();
+        }
+    }
+
+    private removeOldestPipe(): void {
+        this._pipes.shift();
+    }
+
     /**
-     * replace the current pipe for a new one at the back of the line
-     * @param index current pipe from array as index
+     * Replace the current pipe for a new one at the back of the line
      */
-    private replacePipe(index: number): void {
-        this._pipes.splice(index, 1);
+    private createNewPipe(): void {
         this._pipes.push(
-            new GameObjects.Pipe(this._ctx, new Vector((10 / 3 * this._ctx.canvas.width), Functions.getRandomArbitrary(1, 7)))
+            new GameObjects.Pipe(
+                this._ctx, new Vector(10 / 3 * this._ctx.canvas.width, Functions.getRandomArbitrary(1, 7))
+            )
         );
     }
 }

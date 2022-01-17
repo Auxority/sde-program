@@ -7,7 +7,7 @@ export default abstract class Functions {
      * @returns Number in between
      */
     public static getRandomArbitrary(min: number, max: number) {
-        return Math.random() * (max - min) + min;
+        return min + Math.random() * (max - min);
     }
 
     /**

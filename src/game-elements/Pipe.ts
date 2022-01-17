@@ -26,7 +26,7 @@ export default class Pipe extends GameObject {
      * Check if its already of the screen on the left
      * @returns boolean if true
      */
-    public hasMetPlayer(): boolean {
+    public isGone(): boolean {
         return this.position.x < 0 - Pipe.IMAGESIZE.x;
     }
 
@@ -34,21 +34,21 @@ export default class Pipe extends GameObject {
      * Draw the bottom pipe
      */
     private drawBottomPipe(): void {
-        const positionY = (this.position.y / 10) * this.ctx.canvas.height + 50
+        const positionY = (this.position.y / 10) * this.ctx.canvas.height + 50;
         this.ctx.drawImage(this._image, this.position.x, positionY);
-        this.ctx.drawImage(this._extendedImage, this.position.x + 1, positionY + Pipe.IMAGESIZE.y, Pipe.EXTIMAGESIZE.x, this.ctx.canvas.height)
+        this.ctx.drawImage(this._extendedImage, this.position.x + 1, positionY + Pipe.IMAGESIZE.y, Pipe.EXTIMAGESIZE.x, this.ctx.canvas.height);
     }
 
     /**
      * Draw the top pipe
      */
     private drawTopPipe(): void {
-        const positionY = ((10 - this.position.y) / 10) * this.ctx.canvas.height + 50
+        const positionY = ((10 - this.position.y) / 10) * this.ctx.canvas.height + 100;
         this.ctx.save();
         this.ctx.translate(0, this.ctx.canvas.height);
         this.ctx.scale(1, -1);
         this.ctx.drawImage(this._image, this.position.x, positionY);
-        this.ctx.drawImage(this._extendedImage, this.position.x + 1, positionY + Pipe.IMAGESIZE.y, Pipe.EXTIMAGESIZE.x, this.ctx.canvas.height)
+        this.ctx.drawImage(this._extendedImage, this.position.x + 1, positionY + Pipe.IMAGESIZE.y, Pipe.EXTIMAGESIZE.x, this.ctx.canvas.height);
         this.ctx.restore();
     }
 
