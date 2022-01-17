@@ -3,11 +3,11 @@ import Resizer from "./utils/Resizer";
 import * as GameStates from "./game-states/GameStateExports";
 import GameState from "./game-states/GameState";
 import Vector from "./utils/Vector";
+import FrameLimiter from "./utils/FrameLimiter";
 
 // TODO: Apply Singleton design pattern to game
 export default class Game {
     public static readonly GRAVITY = new Vector(0, -0.06);
-
     // elements
     private _startButton: StartButton;
     private _state: GameState;
@@ -16,6 +16,7 @@ export default class Game {
     private _ctx: CanvasRenderingContext2D;
     private _resizer: Resizer;
     private _gameTick: number;
+    private _frameLimit: FrameLimiter;
 
     public constructor(canvasId: string) {
         this._gameTick = 0;
@@ -23,6 +24,7 @@ export default class Game {
         this._ctx = this._canvas.getContext("2d") as CanvasRenderingContext2D;
         this._resizer = new Resizer(this._canvas);
         this._startButton = new StartButton(this);
+        this._frameLimit = new FrameLimiter();
 
         this._state = new GameStates.Starting(this._ctx);
 
@@ -44,7 +46,9 @@ export default class Game {
         this._gameTick = (this._gameTick + 1) % 144;
 
         this.clear();
-        this.processInput();
+        if (this._frameLimit.withinLimit()) {
+            this.processInput();
+        }
         this.update();
         this.render();
 
