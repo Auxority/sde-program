@@ -19,6 +19,10 @@ export default class DeadState implements State {
         ctx.drawImage(this._image, position.x, position.y);
     }
 
+    public getImage(): HTMLImageElement {
+        return this._image;
+    }
+
     private getImageSource(): string {
         return `${Birb.STATE_IMAGE_DIR}/dead.png`;
     }

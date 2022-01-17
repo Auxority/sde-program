@@ -12,4 +12,8 @@ export default interface BirbState {
      * @param image Image element to render
      */
     render(ctx: CanvasRenderingContext2D, position: Vector): void;
+    /**
+     * Gets the image that the birb state uses.
+     */
+    getImage(): HTMLImageElement;
 }
