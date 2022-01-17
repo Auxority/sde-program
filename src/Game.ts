@@ -4,6 +4,7 @@ import * as GameStates from "./game-states/GameStateExports";
 import GameState from "./game-states/GameState";
 import Vector from "./utils/Vector";
 
+// TODO: Apply Singleton design pattern to game
 export default class Game {
     public static readonly GRAVITY = new Vector(0, -0.025);
 
