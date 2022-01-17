@@ -6,6 +6,7 @@ export default class Pipes extends GameObject {
     public static readonly IMAGE_SIZE = new Vector(32, 48);
     public static readonly EXT_IMAGE_SIZE = new Vector(30, 32);
     public static readonly PIPE_SPEED = 2.5;
+    public static readonly PIPE_GAP = 150;
 
     private _image = new Image();
     private _extendedImage = new Image();
@@ -46,8 +47,7 @@ export default class Pipes extends GameObject {
      * Draw the top pipe
      */
     private drawTopPipe(): void {
-        // const positionY = ((10 - this.position.y) / 10) * this.ctx.canvas.height + 100;
-        const positionY = this.ctx.canvas.height - this.position.y + 150;
+        const positionY = this.ctx.canvas.height - this.position.y + Pipes.PIPE_GAP;
         this.ctx.save();
         this.ctx.translate(0, this.ctx.canvas.height);
         this.ctx.scale(1, -1);

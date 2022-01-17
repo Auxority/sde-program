@@ -1,5 +1,6 @@
 import Vector from "../utils/Vector";
 import GameObject from "./GameObject";
+import * as GameObjects from "./GameObjectExports";
 import Pipes from "./pipes/Pipes";
 
 export default class Pipe extends GameObject {
@@ -28,6 +29,8 @@ export default class Pipe extends GameObject {
     private updatePipe(pipe: Pipes): void {
         pipe.update();
         if (pipe.isGone()) {
+            const scoreboard = GameObjects.Scoreboard.getScoreboard(this.ctx, new Vector(this.ctx.canvas.width * 0.5, this.ctx.canvas.height * 0.05));
+            scoreboard.increase();
             this.removeOldestPipe();
             this.createNewPipe();
         }
