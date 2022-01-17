@@ -9,7 +9,6 @@ import Game from "../Game";
 export default class Birb extends GameObject {
     public static readonly STATE_IMAGE_DIR = "./assets/images/birb_assets";
     private readonly MAX_SPEED = 4;
-    private readonly BIRD_HEIGHT = 32;
 
     private _keyboard: Keyboard;
     private _state: BirbState;
