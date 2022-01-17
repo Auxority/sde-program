@@ -13,6 +13,7 @@ export default class Birb extends GameObject {
     private _keyboard: Keyboard;
     private _state: BirbState;
     private _flyDebounce: number;
+    private _size: Vector;
 
     public constructor(ctx: CanvasRenderingContext2D, position: Vector) {
         super(ctx, position);
@@ -20,6 +21,7 @@ export default class Birb extends GameObject {
         this._state = new IdleState();
         this._keyboard = new Keyboard();
         this._flyDebounce = 0;
+        this._size = new Vector(22, 32);
     }
 
     public processInput(): void {
@@ -52,7 +54,7 @@ export default class Birb extends GameObject {
     private applyPhysics(): void {
         this.acceleration.sub(Game.GRAVITY);
         this.velocity.add(this.acceleration).limitY(-this.MAX_SPEED, this.MAX_SPEED);
-        this.position.add(this.velocity);
+        this.position.add(this.velocity).limitY(-this._size.y * 0.5, this.ctx.canvas.height - this._size.y * 0.5);
         this.acceleration.mul(0);
     }
 
