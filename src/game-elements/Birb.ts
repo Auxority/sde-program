@@ -8,7 +8,7 @@ import Game from "../Game";
 
 export default class Birb extends GameObject {
     public static readonly STATE_IMAGE_DIR = "./assets/images/birb_assets";
-    private readonly MAX_SPEED = 4;
+    private readonly MAX_SPEED = 8;
 
     private _keyboard: Keyboard;
     private _state: BirbState;
@@ -29,8 +29,8 @@ export default class Birb extends GameObject {
         }
         if (this._keyboard.isKeyDown(KeyCodes.Space)) {
             if (this._flyDebounce === 0) {
-                this._flyDebounce = 30;
-                this.acceleration.sub(new Vector(0, 3));
+                this._flyDebounce = 72;
+                this.acceleration.sub(new Vector(0, 7.2));
             }
         }
     }

@@ -6,7 +6,7 @@ import Vector from "./utils/Vector";
 
 // TODO: Apply Singleton design pattern to game
 export default class Game {
-    public static readonly GRAVITY = new Vector(0, -0.025);
+    public static readonly GRAVITY = new Vector(0, -0.06);
 
     // elements
     private _startButton: StartButton;
