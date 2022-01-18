@@ -14,7 +14,14 @@ tbd. Explanation about the Game class singleton.
 
 # Structural design patterns
 
-## Placeholder 1
+## Facade
+To add memes to our starting game state, we wanted to use fetch, an http request library.
+So we decided to use a facade to provide us with a simplified interface to use fetch.
+In the example below I'm showing JokesApi class which is used as a simplified interface for the fetch librrary.
+
+**The JokesAPI class**
+
+![image](https://cdn.discordapp.com/attachments/752511704956534804/932952953810210876/unknown.png)
 
 ## Placeholder 2
 

@@ -1,5 +1,5 @@
 export default class Resizer {
-    public static readonly INITIAL_CANVAS_SIZE = 200;
+    public static readonly INITIAL_CANVAS_SIZE = 500;
 
     private _canvas: HTMLCanvasElement;
     private _autoResize: boolean;
