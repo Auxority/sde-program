@@ -47,10 +47,9 @@ export default class Game {
 
     /**
      * When a pipe is hit within the game
-     * @param endScore the score gathered over time
      */
-    public end(endScore: number): void {
-        this._state = new GameStates.Ending(this._ctx, endScore)
+    public end(): void {
+        this._state = new GameStates.Ending(this._ctx)
     }
 
     /**

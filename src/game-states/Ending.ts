@@ -5,13 +5,12 @@ import Vector from "../utils/Vector";
 
 export default class Ending implements GameState {
     private _ctx: CanvasRenderingContext2D;
-    private _endScore: number;
-
+    private _scoreboard: GameObjects.Scoreboard;
     private _background: GameObjects.Background;
 
-    public constructor(ctx: CanvasRenderingContext2D, endScore: number) {
+    public constructor(ctx: CanvasRenderingContext2D) {
         this._ctx = ctx;
-        this._endScore = endScore;
+        this._scoreboard = GameObjects.Scoreboard.getScoreboard(ctx);
         this._background = new GameObjects.Background(ctx, new Vector(0, 0));
     }
 
@@ -37,7 +36,7 @@ export default class Ending implements GameState {
         this._ctx.fillStyle = "#ffffff";
         this._ctx.strokeStyle = "#000000";
 
-        const textString = `Highscore: ${this._endScore}`;
+        const textString = `Highscore: ${this._scoreboard.score}`;
         const textWidth = this._ctx.measureText(textString).width;
 
         const renderInMiddle = (this._ctx.canvas.width/2) - (textWidth / 2);

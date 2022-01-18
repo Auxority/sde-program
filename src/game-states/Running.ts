@@ -44,7 +44,7 @@ export default class Running implements GameState {
     private checkHitDetection(currentGame: Game): void {
         const playerPosition = this._player.getYPosition()
         if (this._pipes.hasHitPipe(playerPosition, this._player.size.y + playerPosition)) {
-            currentGame.end(this._scoreboard.score);
+            currentGame.end();
         }
     }
 }
