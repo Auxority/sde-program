@@ -25,19 +25,22 @@ export default class Ending implements GameState {
 
     public render(): void {
         this._background.render();
+        this.renderText();
+    };
 
+    private renderText(): void {
         this._ctx.save();
         this._ctx.font = "48px Mario";
         this._ctx.fillStyle = "#ffffff";
         this._ctx.strokeStyle = "#000000";
 
-        const textString = `Highscore: ${this._endScore}`
+        const textString = `Highscore: ${this._endScore}`;
         const textWidth = this._ctx.measureText(textString).width;
 
-        const renderInMiddle = (this._ctx.canvas.width/2) - (textWidth / 2)
+        const renderInMiddle = (this._ctx.canvas.width/2) - (textWidth / 2);
         this._ctx.fillText(textString, renderInMiddle, this._ctx.canvas.height/2);
         this._ctx.strokeText(textString, renderInMiddle, this._ctx.canvas.height/2);
 
         this._ctx.restore();
-    };
+    }
 }
