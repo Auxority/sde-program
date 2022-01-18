@@ -1,3 +1,5 @@
+import Game from "../Game";
+
 export default interface GameState {
     /**
      * Process user input like keyboard and mouse.
@@ -7,7 +9,7 @@ export default interface GameState {
     /**
      * update gameobjects' tasks/position
      */
-    update(): void;
+    update(currentGame: Game): void;
 
     /**
      * Render the game for the current state

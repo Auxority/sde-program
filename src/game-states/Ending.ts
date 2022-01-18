@@ -1,7 +1,12 @@
+import Game from "../Game";
 import GameState from "./GameState";
 
 export default class Ending implements GameState {
-    public constructor(ctx: CanvasRenderingContext2D) {
+    private _ctx: CanvasRenderingContext2D;
+
+    public constructor(ctx: CanvasRenderingContext2D, endScore: number) {
+        this._ctx = ctx;
+        // TODO: do somethin with score?
         // empty
     }
 
@@ -9,7 +14,7 @@ export default class Ending implements GameState {
         // empty
     }
 
-    public update(): void {
+    public update(currentGame: Game): void {
         // empty
     }
 

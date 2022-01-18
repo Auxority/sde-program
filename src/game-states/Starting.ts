@@ -1,3 +1,4 @@
+import Game from "../Game";
 import { StartingBirb } from "../game-elements/GameObjectExports";
 import Vector from "../utils/Vector";
 import GameState from "./GameState";
@@ -13,7 +14,7 @@ export default class Starting implements GameState {
         // empty
     }
 
-    public update(): void {
+    public update(currentGame: Game): void {
         // empty
     }
 
