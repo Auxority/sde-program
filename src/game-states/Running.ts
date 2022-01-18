@@ -26,6 +26,7 @@ export default class Running implements GameState {
         this._player.update();
         this._background.update();
         this._pipes.update();
+        this.checkHitDetection();
         this._scoreboard.update();
     }
 
@@ -34,5 +35,14 @@ export default class Running implements GameState {
         this._player.render();
         this._pipes.render();
         this._scoreboard.render();
+    }
+
+    /**
+     * check if the player hit the pipe
+     */
+    private checkHitDetection(): void {
+        const playerPosition = this._player.getYPosition()
+        const hasHitPipe = this._pipes.hasHitPipe(playerPosition, this._player.size.y + playerPosition)
+        // TODO: change state to game-over;
     }
 }

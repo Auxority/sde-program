@@ -8,6 +8,7 @@ import Game from "../Game";
 
 export default class Birb extends GameObject {
     public static readonly STATE_IMAGE_DIR = "./assets/images/birb_assets";
+    public static readonly IMAGE_SIZE = new Vector(22, 32)
     private readonly MAX_SPEED = 20;
     private readonly JUMP_FORCE = 6;
 
@@ -48,6 +49,10 @@ export default class Birb extends GameObject {
             this._state.getImage().width,
             this._state.getImage().height
         );
+    }
+
+    public getYPosition(): number {
+        return this.position.y
     }
 
     private applyPhysics(): void {

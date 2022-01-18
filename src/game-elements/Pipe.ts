@@ -23,6 +23,16 @@ export default class Pipe extends GameObject {
     }
 
     /**
+     * check if the player hit the pipe closest
+     * @param yPositionTop top position of player
+     * @param yPositionBottom bottom position of player
+     * @returns bool true if hit
+     */
+    public hasHitPipe(yPositionTop: number, yPositionBottom: number): boolean {
+        return this._pipes[0].hasHitPipe(yPositionTop, yPositionBottom);
+    }
+
+    /**
      * Run update function for each pipe
      * @param pipe current pipe
      */

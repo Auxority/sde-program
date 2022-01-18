@@ -1,5 +1,6 @@
 import Functions from "../../utils/Functions";
 import Vector from "../../utils/Vector";
+import Birb from "../Birb";
 import GameObject from "../GameObject";
 
 export default class Pipes extends GameObject {
@@ -33,6 +34,21 @@ export default class Pipes extends GameObject {
      */
     public isGone(): boolean {
         return this.position.x < 0 - Pipes.IMAGE_SIZE.x;
+    }
+
+    /**
+     * check if player hit the pipe, X position is static
+     * @param yPositionTop top position of player
+     * @param yPositionBottom bottom position of player
+     * @returns bool true if hit
+     */
+    public hasHitPipe(yPositionTop: number, yPositionBottom: number): boolean {
+        // check X axes of pipe with static player X axes
+        if (0.1 * this.ctx.canvas.width + Birb.IMAGE_SIZE.x > this.position.x && 0.1 * this.ctx.canvas.width < this.position.x + Pipes.IMAGE_SIZE.x) {
+            const topPipePosition = this.position.y - Pipes.PIPE_GAP;
+            return !(topPipePosition < yPositionTop && this.position.y > yPositionBottom);
+        }
+        return false
     }
 
     /**
