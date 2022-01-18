@@ -11,7 +11,7 @@ export default class Starting implements GameState {
 
     public constructor (ctx: CanvasRenderingContext2D) {
         this._ctx = ctx;
-        this._startingBirb = new StartingBirb(ctx, new Vector(0, -8));
+        this._startingBirb = new StartingBirb(ctx, new Vector(0, -25));
         this._loadingJoke = false;
         this._randomJoke = "";
     }
