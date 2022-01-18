@@ -1,7 +1,3 @@
-/**
- * Maybe convert this to an abstract class called GameScene and extend it into the subclasses?
- */
-
 export default interface GameState {
     /**
      * Process user input like keyboard and mouse.
