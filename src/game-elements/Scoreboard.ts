@@ -10,6 +10,11 @@ export default class Scoreboard extends GameObject {
         this._score = 0;
     }
 
+    /**
+     * Use scoreboard as singleton
+     * @param ctx Canvas to render scoreboard to
+     * @returns a new or already created scoreboard
+     */
     public static getScoreboard(ctx: CanvasRenderingContext2D): Scoreboard {
         if (!this._scoreboard) {
             const position = new Vector(ctx.canvas.width * 0.5, ctx.canvas.height * 0.05)
@@ -18,14 +23,23 @@ export default class Scoreboard extends GameObject {
         return this._scoreboard;
     }
 
+    /**
+     * get current score
+     */
     public get score(): number {
         return this._score;
     }
 
+    /**
+     * reset the score
+     */
     public reset(): void {
         this._score = 0;
     }
 
+    /**
+     * increase the score by 1
+     */
     public increase(): void {
         this._score++;
     }
