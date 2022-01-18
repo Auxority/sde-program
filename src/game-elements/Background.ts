@@ -1,5 +1,5 @@
 import Vector from "../utils/Vector";
-import Backgrounds from "./background_colors/Backgrounds";
+import Backgrounds from "./backgrounds/Backgrounds";
 import GameObject from "./GameObject";
 
 export default class Background extends GameObject {
