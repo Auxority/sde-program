@@ -32,6 +32,9 @@ export default class Starting implements GameState {
         this._startingBirb.render();
     };
 
+    /**
+     * Render the joke to the canvas
+     */
     private renderJoke(): void {
         if (this._randomJoke) {
             this._ctx.save();
@@ -47,6 +50,10 @@ export default class Starting implements GameState {
         }
     }
 
+    /**
+     * Returns a random joke with check if it fits in canvas otherwise new line
+     * @returns the joke in multiple parts if needed
+     */
     private getLines(): string[] {
         const maxWidth = this._ctx.canvas.width * 0.96;
         const words = this._randomJoke.split(" ");

@@ -21,6 +21,11 @@ export default abstract class Functions {
         return image;
     }
 
+    /**
+     * Search something within a enum
+     * @param enumName in which enum it needs to search
+     * @returns item within the enum
+     */
     public static getRandomEnum<T>(enumName: T): T[keyof T] {
         const enumValues = Object.values(enumName) as unknown as T[keyof T][];
         const randomIndex = Math.floor(Math.random() * enumValues.length);

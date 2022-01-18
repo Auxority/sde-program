@@ -28,6 +28,9 @@ export default class Ending implements GameState {
         this.renderText();
     };
 
+    /**
+     * Render the highscore gotten during the round
+     */
     private renderText(): void {
         this._ctx.save();
         this._ctx.font = "48px Mario";

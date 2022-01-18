@@ -6,6 +6,10 @@ export default class FrameLimiter {
     private _interval = 1000/FrameLimiter.FPS;
     private _delta: number = 0;
 
+    /**
+     * Check if next update needs to happen based on FPS
+     * @returns a bool if frame is first that fits in the new FPS timeframe
+     */
     public withinLimit(): boolean {
         this._now = Date.now();
         this._delta = this._now - this._then;
