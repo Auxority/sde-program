@@ -39,7 +39,8 @@ export default class Background extends GameObject {
     private createNewBackground(): void {
         const backgroundPosition = new Vector(
             // use beginning position for first background, otherwise add to the back
-            this._scrollingPictures.length === 0 ? 0 : this.ctx.canvas.width * 2, 0
+            this._scrollingPictures.length === 0 ? 0 : this.ctx.canvas.width * 1.9,
+            0
         );
         const newPipe = new Backgrounds(
             this.ctx,

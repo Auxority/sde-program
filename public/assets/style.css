@@ -34,3 +34,8 @@ body {
     font-family: 'Comic Sans';
     src: url('./fonts/comic.ttf');
 }
+
+@font-face {
+    font-family: 'Mario';
+    src: url('./fonts/mario-kart.ttf');
+}
