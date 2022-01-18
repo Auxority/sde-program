@@ -38,11 +38,19 @@ export default class Game {
     }
 
     /**
-     * when the "start" button of the game is pressed, to start the game
+     * When the "start" button of the game is pressed, to start the game
      */
     public start(): void {
         this._resizer.enableAutoResize();
         this._state = new GameStates.Running(this._ctx);
+    }
+
+    /**
+     * When a pipe is hit within the game
+     * @param endScore the score gathered over time
+     */
+    public end(endScore: number): void {
+        this._state = new GameStates.Ending(this._ctx, endScore)
     }
 
     /**
@@ -70,7 +78,7 @@ export default class Game {
      * Call the updater in current state
      */
     private update(): void {
-        this._state.update();
+        this._state.update(this);
     }
 
     /**

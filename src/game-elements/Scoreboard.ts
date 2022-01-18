@@ -18,6 +18,10 @@ export default class Scoreboard extends GameObject {
         return this._scoreboard;
     }
 
+    public get score(): number {
+        return this._score;
+    }
+
     public reset(): void {
         this._score = 0;
     }

@@ -1,3 +1,4 @@
+import Game from "../Game";
 import * as GameObjects from "../game-elements/GameObjectExports";
 import Vector from "../utils/Vector";
 import GameState from "./GameState";
@@ -22,10 +23,11 @@ export default class Running implements GameState {
         this._player.processInput();
     }
 
-    public update(): void {
+    public update(currentGame: Game): void {
         this._player.update();
         this._background.update();
         this._pipes.update();
+        this.checkHitDetection(currentGame);
         this._scoreboard.update();
     }
 
@@ -34,5 +36,15 @@ export default class Running implements GameState {
         this._player.render();
         this._pipes.render();
         this._scoreboard.render();
+    }
+
+    /**
+     * check if the player hit the pipe
+     */
+    private checkHitDetection(currentGame: Game): void {
+        const playerPosition = this._player.getYPosition()
+        if (this._pipes.hasHitPipe(playerPosition, this._player.size.y + playerPosition)) {
+            currentGame.end(this._scoreboard.score);
+        }
     }
 }
