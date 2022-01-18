@@ -11,7 +11,7 @@ export default class Ending implements GameState {
     public constructor(ctx: CanvasRenderingContext2D) {
         this._ctx = ctx;
         this._scoreboard = GameObjects.Scoreboard.getScoreboard(ctx);
-        this._background = new GameObjects.Background(ctx, new Vector(0, 0));
+        this._background = GameObjects.Background.getBackground(ctx);
     }
 
     public processInput(): void {

@@ -13,7 +13,7 @@ export default class Running implements GameState {
 
     public constructor(ctx: CanvasRenderingContext2D) {
         this._ctx = ctx;
-        this._background = new GameObjects.Background(ctx, new Vector(0, 0))
+        this._background = GameObjects.Background.getBackground(ctx);
         this._player = new GameObjects.Birb(ctx, new Vector(0.1 * ctx.canvas.width, 0.5 * ctx.canvas.height));
         this._pipes = new GameObjects.Pipe(ctx, new Vector(0, 0));
         this._scoreboard = GameObjects.Scoreboard.getScoreboard(ctx);

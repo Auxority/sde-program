@@ -3,6 +3,7 @@ import Backgrounds from "./backgrounds/Backgrounds";
 import GameObject from "./GameObject";
 
 export default class Background extends GameObject {
+    private static _background: Background;
     public static readonly BACKGROUND_SPEED = 1.25;
     private _scrollingPictures: Backgrounds[];
 
@@ -12,6 +13,18 @@ export default class Background extends GameObject {
         for (let i = 0; i < 2; i++) {
             this.createNewBackground();
         }
+    }
+
+    /**
+     * Use background as singleton to keep movement consistend between gamestates
+     * @param ctx Canvas to render the background to
+     * @returns a new or already created background object
+     */
+     public static getBackground(ctx: CanvasRenderingContext2D): Background {
+        if (!this._background) {
+            this._background = new Background(ctx, new Vector(0, 0));
+        }
+        return this._background;
     }
 
     public render(): void {
