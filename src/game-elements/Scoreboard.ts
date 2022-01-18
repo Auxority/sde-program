@@ -2,7 +2,7 @@ import Vector from "../utils/Vector";
 import GameObject from "./GameObject";
 
 export default class Scoreboard extends GameObject {
-    private static _scoreboard: Scoreboard;
+    private static _instance: Scoreboard;
     private _score: number;
 
     private constructor(ctx: CanvasRenderingContext2D, position: Vector) {
@@ -16,11 +16,11 @@ export default class Scoreboard extends GameObject {
      * @returns a new or already created scoreboard
      */
     public static getScoreboard(ctx: CanvasRenderingContext2D): Scoreboard {
-        if (!this._scoreboard) {
+        if (!this._instance) {
             const position = new Vector(ctx.canvas.width * 0.5, ctx.canvas.height * 0.05)
-            this._scoreboard = new Scoreboard(ctx, position);
+            this._instance = new Scoreboard(ctx, position);
         }
-        return this._scoreboard;
+        return this._instance;
     }
 
     /**

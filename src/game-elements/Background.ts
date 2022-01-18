@@ -3,7 +3,7 @@ import Backgrounds from "./backgrounds/Backgrounds";
 import GameObject from "./GameObject";
 
 export default class Background extends GameObject {
-    private static _background: Background;
+    private static _instance: Background;
     public static readonly BACKGROUND_SPEED = 1.25;
     private _scrollingPictures: Backgrounds[];
 
@@ -21,10 +21,10 @@ export default class Background extends GameObject {
      * @returns a new or already created background object
      */
      public static getBackground(ctx: CanvasRenderingContext2D): Background {
-        if (!this._background) {
-            this._background = new Background(ctx, new Vector(0, 0));
+        if (!this._instance) {
+            this._instance = new Background(ctx, new Vector(0, 0));
         }
-        return this._background;
+        return this._instance;
     }
 
     public render(): void {
