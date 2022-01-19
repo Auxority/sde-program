@@ -26,6 +26,7 @@ Another singleton we made was the Game class, this prevents us from accidentally
 ![image](https://media.discordapp.net/attachments/752511704956534804/933302980223053864/unknown.png)
 
 **Usage of the Game singleton**
+
 ![image](https://media.discordapp.net/attachments/752511704956534804/933303484642639892/unknown.png)
 
 # Structural design patterns
