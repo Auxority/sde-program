@@ -29,6 +29,11 @@ export default class Game {
         requestAnimationFrame(this.loop);
     }
 
+    /**
+     * Use game as singleton
+     * @param camvasId of the canvas to render the game in
+     * @returns a new or already created game object
+     */
     public static getGame(canvasId: string): Game {
         if (!this.game) {
             this.game = new Game(canvasId);
