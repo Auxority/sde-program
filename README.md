@@ -8,11 +8,11 @@ We decided to create Flappy Birb from scratch, and use multiple design patterns 
 
 ## Singleton
 For Singleton we made both the background and scoreboard a singleton, to share the same instance of the object between gameStates without passing that info to the next state manually.
-**creating / reusing the singleton**
+**Creating / reusing the singleton**
 
 ![image](https://user-images.githubusercontent.com/22680656/150093443-109497fc-5bcd-48a1-91f8-4bf28745ae1e.png)
 
-**implementation within the running state**
+**Implementation within the running state**
 this singleton is reused in the ending state of the the game
 
 ![image](https://user-images.githubusercontent.com/22680656/150093510-0c023ca0-80fd-43b8-8aa6-936e7d5ec0d7.png)
@@ -23,7 +23,7 @@ this singleton is reused in the ending state of the the game
 
 # Structural design patterns
 
-## Facade
+## Facade 1
 To add memes to our starting game state, we wanted to use fetch, an http request library.
 So we decided to use a facade to provide us with a simplified interface to use fetch.
 In the example below I'm showing JokesApi class which is used as a simplified interface for the fetch librrary.
@@ -32,8 +32,14 @@ In the example below I'm showing JokesApi class which is used as a simplified in
 
 ![image](https://cdn.discordapp.com/attachments/752511704956534804/932952953810210876/unknown.png)
 
-## Placeholder 2
+## Facade 2
 
+To allow user input in our game, we decided it would be a good idea to make a Keyboard class.
+This acts as a facade for keyboard event listeners. And makes it easier to listen for certain keys in our game.
+
+**The Keyboard class**
+
+![image](https://media.discordapp.net/attachments/752511704956534804/933285811540066335/unknown.png)
 
 # Behavioural design patterns
 
