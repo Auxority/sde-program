@@ -1,24 +1,32 @@
 import Game from "../Game";
 import GameState from "./GameState";
 import * as GameObjects from "../game-elements/GameObjectExports";
-import Vector from "../utils/Vector";
+import { KeyCodes } from "../enums/KeyCodes";
+import Keyboard from "../input/Keyboard";
 
 export default class Ending implements GameState {
     private _ctx: CanvasRenderingContext2D;
+    private _currentGame: Game;
     private _scoreboard: GameObjects.Scoreboard;
     private _background: GameObjects.Background;
+    private _keyboard: Keyboard;
 
-    public constructor(ctx: CanvasRenderingContext2D) {
+    public constructor(ctx: CanvasRenderingContext2D, currentGame: Game) {
         this._ctx = ctx;
+        this._currentGame = currentGame
         this._scoreboard = GameObjects.Scoreboard.getScoreboard(ctx);
         this._background = GameObjects.Background.getBackground(ctx);
+        this._keyboard = new Keyboard();
     }
 
     public processInput(): void {
-        // empty
+        // reset the game on enter
+        if (this._keyboard.isKeyDown(KeyCodes.Enter)) {
+            this._currentGame.start();
+        }
     }
 
-    public update(currentGame: Game): void {
+    public update(): void {
         // empty
     }
 

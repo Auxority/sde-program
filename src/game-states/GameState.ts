@@ -9,7 +9,7 @@ export default interface GameState {
     /**
      * update gameobjects' tasks/position
      */
-    update(currentGame: Game): void;
+    update(): void;
 
     /**
      * Render the game for the current state
