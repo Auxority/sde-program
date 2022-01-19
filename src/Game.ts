@@ -5,7 +5,6 @@ import GameState from "./game-states/GameState";
 import Vector from "./utils/Vector";
 import FrameLimiter from "./utils/FrameLimiter";
 
-// TODO: Apply Singleton design pattern to game
 export default class Game {
     public static readonly GRAVITY = new Vector(0, -0.2);
     private static game: Game;
@@ -30,7 +29,7 @@ export default class Game {
         requestAnimationFrame(this.loop);
     }
 
-    public static createGame(canvasId: string): Game {
+    public static getGame(canvasId: string): Game {
         if (!this.game) {
             this.game = new Game(canvasId);
         }
