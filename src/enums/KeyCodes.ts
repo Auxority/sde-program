@@ -36,6 +36,7 @@ export enum KeyCodes {
     Nine = "Digit9",
     Zero = "Digit0",
     Space = "Space",
+    Enter = "Enter",
     ShiftLeft = "ShiftLeft",
     ShiftRight = "ShiftRight",
     ControlLeft = "ControlLeft",

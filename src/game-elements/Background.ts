@@ -20,7 +20,7 @@ export default class Background extends GameObject {
      * @param ctx Canvas to render the background to
      * @returns a new or already created background object
      */
-     public static getBackground(ctx: CanvasRenderingContext2D): Background {
+    public static getBackground(ctx: CanvasRenderingContext2D): Background {
         if (!this._instance) {
             this._instance = new Background(ctx, new Vector(0, 0));
         }

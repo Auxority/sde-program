@@ -42,14 +42,14 @@ export default class Game {
      */
     public start(): void {
         this._resizer.enableAutoResize();
-        this._state = new GameStates.Running(this._ctx);
+        this._state = new GameStates.Running(this._ctx, this);
     }
 
     /**
      * When a pipe is hit within the game
      */
     public end(): void {
-        this._state = new GameStates.Ending(this._ctx)
+        this._state = new GameStates.Ending(this._ctx, this);
     }
 
     /**
@@ -77,7 +77,7 @@ export default class Game {
      * Call the updater in current state
      */
     private update(): void {
-        this._state.update(this);
+        this._state.update();
     }
 
     /**
