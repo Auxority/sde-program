@@ -85,4 +85,4 @@ Another design pattern we chose to implement was the state pattern. We have used
 
 ![image](https://cdn.discordapp.com/attachments/752511704956534804/932941986682519582/unknown.png)
 
-If you want to test the game, it you can try it within github pages: https://auxority.github.io/sde-program/
+If you want to test the game, you can try it within github pages: https://auxority.github.io/sde-program/
