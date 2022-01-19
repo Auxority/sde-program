@@ -1,8 +1,10 @@
 # SDE Program
 This is a collaborative assignment with [Zefanja Jobse](https://github.com/zefanjajobse) for SDE (Software Design).
+We started brainstorming for ideas, thought of making a calculator application, a particle system for html5 canvas, a parametric equalizer.
+But we decided to create Flappy Birb from scratch, because we could easily apply multiple design patterns in such a game.
+We started by looking for assets, and slowly started to make the game. And the final product can be seen below.
 
-We decided to create Flappy Birb from scratch, and use multiple design patterns for it.
-![image](https://user-images.githubusercontent.com/35202343/149156802-511c651d-85bd-468c-aecb-d6e2301db1e3.png)
+![image](https://media.discordapp.net/attachments/752511704956534804/933306302514491422/unknown.png)
 
 # Creational design patterns
 
