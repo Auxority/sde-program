@@ -6,6 +6,10 @@ We started by looking for assets, and slowly started to make the game. And the f
 
 ![image](https://media.discordapp.net/attachments/752511704956534804/933306302514491422/unknown.png)
 
+We both committed a lot of code, and in total it's about the same amount. As seen in the image below.
+
+![image](https://media.discordapp.net/attachments/752511704956534804/933307103630745600/unknown.png)
+
 # Creational design patterns
 
 ## Singleton 1
