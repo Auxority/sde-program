@@ -7,7 +7,16 @@ We decided to create Flappy Birb from scratch, and use multiple design patterns 
 # Creational design patterns
 
 ## Singleton
-tbd. Explanation about the Game class singleton.
+For Singleton we made both the background and scoreboard a singleton, to share the same instance of the object between gameStates without passing that info to the next state manually.
+**creating / reusing the singleton**
+
+![image](https://user-images.githubusercontent.com/22680656/150093443-109497fc-5bcd-48a1-91f8-4bf28745ae1e.png)
+
+**implementation within the running state**
+this singleton is reused in the ending state of the the game
+
+![image](https://user-images.githubusercontent.com/22680656/150093510-0c023ca0-80fd-43b8-8aa6-936e7d5ec0d7.png)
+
 
 ## Placeholder 2
 
