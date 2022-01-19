@@ -17,7 +17,7 @@ export default class Scoreboard extends GameObject {
      */
     public static getScoreboard(ctx: CanvasRenderingContext2D): Scoreboard {
         if (!this._instance) {
-            const position = new Vector(ctx.canvas.width * 0.5, ctx.canvas.height * 0.05)
+            const position = new Vector(ctx.canvas.width * 0.5, ctx.canvas.height * 0.1);
             this._instance = new Scoreboard(ctx, position);
         }
         return this._instance;
@@ -44,9 +44,14 @@ export default class Scoreboard extends GameObject {
         this._score++;
     }
 
+    public update(): void {
+        this.position.set(this.ctx.canvas.width * 0.5, Math.min(50, this.ctx.canvas.height * 0.1));
+    }
+
     public render(): void {
         this.ctx.save();
         this.ctx.font = "48px Mario";
+        this.ctx.textAlign = "center";
         this.ctx.fillStyle = "#ffffff";
         this.ctx.strokeStyle = "#000000";
 

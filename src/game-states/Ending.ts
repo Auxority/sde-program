@@ -44,10 +44,10 @@ export default class Ending implements GameState {
         this._ctx.fillStyle = "#ffffff";
         this._ctx.strokeStyle = "#000000";
 
-        const textString = `Highscore: ${this._scoreboard.score}`;
+        const textString = `highscore: ${this._scoreboard.score}`;
         const textWidth = this._ctx.measureText(textString).width;
 
-        const renderInMiddle = (this._ctx.canvas.width/2) - (textWidth / 2);
+        const renderInMiddle = (this._ctx.canvas.width / 2) - (textWidth / 2);
         this._ctx.fillText(textString, renderInMiddle, this._ctx.canvas.height/2);
         this._ctx.strokeText(textString, renderInMiddle, this._ctx.canvas.height/2);
 
