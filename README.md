@@ -10,6 +10,9 @@ We both committed a lot of code, and in total it's about the same amount. As see
 
 ![image](https://media.discordapp.net/attachments/752511704956534804/933307103630745600/unknown.png)
 
+more info:
+https://github.com/Auxority/sde-program
+
 # Creational design patterns
 
 ## Singleton 1
@@ -81,3 +84,5 @@ Another design pattern we chose to implement was the state pattern. We have used
 **The running GameState**
 
 ![image](https://cdn.discordapp.com/attachments/752511704956534804/932941986682519582/unknown.png)
+
+If you want to test the game, it you can try it within github pages: https://auxority.github.io/sde-program/
