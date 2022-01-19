@@ -6,7 +6,7 @@ We decided to create Flappy Birb from scratch, and use multiple design patterns 
 
 # Creational design patterns
 
-## Singleton
+## Singleton 1
 For Singleton we made both the background and scoreboard a singleton, to share the same instance of the object between gameStates without passing that info to the next state manually.
 
 **Creating / reusing the singleton**
@@ -20,8 +20,15 @@ This singleton is reused in the ending state of the the game
 ![image](https://user-images.githubusercontent.com/22680656/150093510-0c023ca0-80fd-43b8-8aa6-936e7d5ec0d7.png)
 
 
-## Placeholder 2
+## Singleton 2
+Another singleton we made was the Game class, this prevents us from accidentally creating two game instances and makes it easier to call public methods of the Game class from other classes. In the images below a part of the Game class is shown, as well as an example of where it is used.
 
+**The Game class**
+
+![image](https://media.discordapp.net/attachments/752511704956534804/933302980223053864/unknown.png)
+
+**Usage of the Game singleton**
+![image](https://media.discordapp.net/attachments/752511704956534804/933303484642639892/unknown.png)
 
 # Structural design patterns
 
